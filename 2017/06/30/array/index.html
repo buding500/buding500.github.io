@@ -93,15 +93,16 @@
 
 
 
-<meta name="description" content="不安逸，不浮躁，做最好的自己">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gezi&#39;s Notes">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array数组操作">
+<meta property="og:url" content="http://yoursite.com/2017/06/30/array/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
-<meta property="og:description" content="不安逸，不浮躁，做最好的自己">
+<meta property="og:description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
+<meta property="og:updated_time" content="2017-06-30T16:18:18.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gezi&#39;s Notes">
-<meta name="twitter:description" content="不安逸，不浮躁，做最好的自己">
+<meta name="twitter:title" content="Array数组操作">
+<meta name="twitter:description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
 
 
 
@@ -129,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/30/array/"/>
 
 
 
 
 
-  <title>Gezi's Notes</title>
+  <title>Array数组操作 | Gezi's Notes</title>
   
 
 
@@ -160,9 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +244,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -273,9 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/30/array/" itemprop="url">Array数组操作</a></h1>
+          <h1 class="post-title" itemprop="name headline">Array数组操作</h1>
         
 
         <div class="post-meta">
@@ -322,9 +319,7 @@
       
 
       
-        
-          
-            <p>javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。</p>
+        <p>javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。</p>
 <h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>); <span class="comment">//创建一个包含3项的数组</span></div><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'a'</span>); <span class="comment">//创建一个只有一项为‘a’的数组</span></div><div class="line"><span class="keyword">var</span> array = []; <span class="comment">//创建一个空数组</span></div><div class="line"><span class="keyword">var</span> array = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]; <span class="comment">//创建一个内容为a,b,c三项的数组</span></div><div class="line"><span class="keyword">var</span> array = [<span class="number">3</span>]; <span class="comment">//创建一个只一项为3的数组 ***谨防掉坑</span></div></pre></td></tr></table></figure>
 <h2 id="获取数组项"><a href="#获取数组项" class="headerlink" title="获取数组项"></a>获取数组项</h2><p>获取数组项非常简单，采用下标方式即可,下标索引从0开始：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>, <span class="string">'blue'</span>];</div><div class="line">colors[<span class="number">0</span>]; <span class="comment">//red</span></div><div class="line">colors[<span class="number">3</span>]; <span class="comment">//undefined 数组中没有第四项，默认为undefined</span></div></pre></td></tr></table></figure>
@@ -340,20 +335,27 @@
 <p>周公已经发出邀约，准备赴约去了，这是最最最最最基础的东西了。明天继续！</p>
 <hr>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -361,21 +363,22 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -383,6 +386,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -402,8 +409,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -447,6 +463,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数组"><span class="nav-number">1.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取数组项"><span class="nav-number">2.</span> <span class="nav-text">获取数组项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认属性"><span class="nav-number">3.</span> <span class="nav-text">默认属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换方法"><span class="nav-number">4.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测数组类型"><span class="nav-number">5.</span> <span class="nav-text">检测数组类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -567,10 +599,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
