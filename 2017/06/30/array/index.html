@@ -95,13 +95,13 @@
 
 <meta name="description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Array数组操作">
+<meta property="og:title" content="Array数组基础知识">
 <meta property="og:url" content="http://yoursite.com/2017/06/30/array/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
 <meta property="og:description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
-<meta property="og:updated_time" content="2017-06-30T16:23:11.027Z">
+<meta property="og:updated_time" content="2017-07-01T14:04:31.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Array数组操作">
+<meta name="twitter:title" content="Array数组基础知识">
 <meta name="twitter:description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title>Array数组操作 | Gezi's Notes</title>
+  <title>Array数组基础知识 | Gezi's Notes</title>
   
 
 
@@ -207,22 +207,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Array数组操作</h1>
+          <h1 class="post-title" itemprop="name headline">Array数组基础知识</h1>
         
 
         <div class="post-meta">
@@ -294,6 +294,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -332,7 +354,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(colors.join(<span class="string">','</span>)); <span class="comment">//red,yellow,blue,orange</span></div><div class="line"><span class="built_in">console</span>.log(colors.join(<span class="string">'&amp;'</span>)); <span class="comment">//red&amp;yellow&amp;blue&amp;orange</span></div><div class="line"><span class="built_in">console</span>.log(colors.join()); <span class="comment">//red,yellow,blue,orange</span></div></pre></td></tr></table></figure>
 <h2 id="检测数组类型"><a href="#检测数组类型" class="headerlink" title="检测数组类型"></a>检测数组类型</h2><p>检测数据类型有两种方式： <font color="#f40">instanceof</font> 和 es5提出的 <font color="#f40">Array.isArray</font> ; 当我们的页面中包含iframe或者多个框架时,我们应该用Array.isArray来进行类型检测。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">//true</span></div><div class="line"><span class="built_in">Array</span>.isArray(colors); <span class="comment">//true  对浏览器有版本要求</span></div></pre></td></tr></table></figure>
-<p>周公已经发出邀约，准备赴约去了，这是最最最最最基础的东西了。明天继续！</p>
+<p>下一篇： <a href="https://buding500.github.io/2017/07/01/array2/" target="_blank" rel="external">数组方法1</a></p>
 <hr>
 
       
@@ -366,6 +388,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/01/array2/" rel="prev" title="数组方法1">
+                数组方法1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -434,12 +472,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
