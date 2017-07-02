@@ -95,13 +95,13 @@
 
 <meta name="description" content="push()：向数组末尾添加任意项，返回数组长度。123var colors = [&apos;red&apos;, &apos;yellow&apos;];var length = colors.push(&apos;blue&apos;, &apos;orange&apos;, &apos;green&apos;); //向数组中添加三项console.log(length);  //5 pop()：从数组的末尾移除一项，返回移除的项。12var item = colors.pop(); /">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组方法1">
+<meta property="og:title" content="数组项操作方法">
 <meta property="og:url" content="http://yoursite.com/2017/07/01/array2/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
 <meta property="og:description" content="push()：向数组末尾添加任意项，返回数组长度。123var colors = [&apos;red&apos;, &apos;yellow&apos;];var length = colors.push(&apos;blue&apos;, &apos;orange&apos;, &apos;green&apos;); //向数组中添加三项console.log(length);  //5 pop()：从数组的末尾移除一项，返回移除的项。12var item = colors.pop(); /">
-<meta property="og:updated_time" content="2017-07-01T15:55:38.056Z">
+<meta property="og:updated_time" content="2017-07-02T14:14:09.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组方法1">
+<meta name="twitter:title" content="数组项操作方法">
 <meta name="twitter:description" content="push()：向数组末尾添加任意项，返回数组长度。123var colors = [&apos;red&apos;, &apos;yellow&apos;];var length = colors.push(&apos;blue&apos;, &apos;orange&apos;, &apos;green&apos;); //向数组中添加三项console.log(length);  //5 pop()：从数组的末尾移除一项，返回移除的项。12var item = colors.pop(); /">
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title>数组方法1 | Gezi's Notes</title>
+  <title>数组项操作方法 | Gezi's Notes</title>
   
 
 
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数组方法1</h1>
+          <h1 class="post-title" itemprop="name headline">数组项操作方法</h1>
         
 
         <div class="post-meta">
@@ -354,7 +354,7 @@
 <p>看到这个结果是不是很诧异？sort()方法会调用数组每项的toString()方法，然后将得到的字符串进行比较来进行排序。当然这不是我们想要的结果，怎么办呢? sort()方法可以接收一个比较函数作为参数，让我们来指定如何排序。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1, value2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> value1 - value2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">15</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">20</span>];</div><div class="line">numbers.sort(compare);</div><div class="line"><span class="built_in">console</span>.log(numbers); <span class="comment">//1, 5, 10, 15, 20</span></div></pre></td></tr></table></figure>
 <h5 id="indexOf-和-lastIndexOf-：两者均接收两个参数：要查找的项和查找起始位置-可选-；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf-是从数组的开头向后查找，lastIndexOf-则是从数组的末尾向前查找。"><a href="#indexOf-和-lastIndexOf-：两者均接收两个参数：要查找的项和查找起始位置-可选-；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf-是从数组的开头向后查找，lastIndexOf-则是从数组的末尾向前查找。" class="headerlink" title="indexOf() 和 lastIndexOf()：两者均接收两个参数：要查找的项和查找起始位置(可选)；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf()是从数组的开头向后查找，lastIndexOf()则是从数组的末尾向前查找。"></a><font color="#f40">indexOf()</font> 和 <font color="#f40">lastIndexOf()</font>：两者均接收两个参数：要查找的项和查找起始位置(可选)；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf()是从数组的开头向后查找，lastIndexOf()则是从数组的末尾向前查找。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</div><div class="line"><span class="built_in">console</span>.log(numbers.indexOf(<span class="number">3</span>)); <span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(numbers.lastIndexOf(<span class="number">3</span>)); <span class="comment">//6</span></div><div class="line"><span class="built_in">console</span>.log(numbers.indexOf(<span class="number">3</span>,<span class="number">3</span>)); <span class="comment">//6</span></div><div class="line"><span class="built_in">console</span>.log(numbers.lastIndexOf(<span class="number">3</span>,<span class="number">3</span>)); <span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(numbers.indexOf(<span class="number">9</span>)); <span class="comment">//-1</span></div><div class="line"><span class="built_in">console</span>.log(numbers.lastIndexOf(<span class="number">9</span>)); <span class="comment">//-1</span></div></pre></td></tr></table></figure>
-<p>下一篇： <a href="https://buding500.github.io/2017/07/02/array3/" target="_blank" rel="external">数组方法2</a></p>
+<p>下一篇： <a href="https://buding500.github.io/2017/07/02/array3/" target="_blank" rel="external">数组操作方法</a></p>
 
       
     </div>
@@ -400,6 +400,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/02/array3/" rel="prev" title="数组操作方法">
+                数组操作方法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -471,7 +475,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
