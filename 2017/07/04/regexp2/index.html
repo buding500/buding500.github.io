@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="趁热打铁，一并把RegExp对象的属性也回顾一遍吧：    属性 描述     global RegExp 对象是否具有标志 g   ignoreCase RegExp 对象是否具有标志 i   multiline RegExp 对象是否具有标志 m   lastIndex 一个整数，标示开始下一次匹配的字符位置   source 正则表达式的源文本    重点看一下lastIndex: last">
+<meta name="description" content="趁热打铁，一并把RegExp对象的属性也回顾一遍吧：  table th:first-of-type {     width: 100px; }      属性 描述     global RegExp 对象是否具有标志 g   ignoreCase RegExp 对象是否具有标志 i   multiline RegExp 对象是否具有标志 m   lastIndex 一个整数，标示开始下一次匹配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RegExp属性lastIndex和与正则相关的String方法">
 <meta property="og:url" content="http://yoursite.com/2017/07/04/regexp2/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
-<meta property="og:description" content="趁热打铁，一并把RegExp对象的属性也回顾一遍吧：    属性 描述     global RegExp 对象是否具有标志 g   ignoreCase RegExp 对象是否具有标志 i   multiline RegExp 对象是否具有标志 m   lastIndex 一个整数，标示开始下一次匹配的字符位置   source 正则表达式的源文本    重点看一下lastIndex: last">
-<meta property="og:updated_time" content="2017-07-04T14:30:04.932Z">
+<meta property="og:description" content="趁热打铁，一并把RegExp对象的属性也回顾一遍吧：  table th:first-of-type {     width: 100px; }      属性 描述     global RegExp 对象是否具有标志 g   ignoreCase RegExp 对象是否具有标志 i   multiline RegExp 对象是否具有标志 m   lastIndex 一个整数，标示开始下一次匹配">
+<meta property="og:updated_time" content="2017-07-05T14:22:00.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RegExp属性lastIndex和与正则相关的String方法">
-<meta name="twitter:description" content="趁热打铁，一并把RegExp对象的属性也回顾一遍吧：    属性 描述     global RegExp 对象是否具有标志 g   ignoreCase RegExp 对象是否具有标志 i   multiline RegExp 对象是否具有标志 m   lastIndex 一个整数，标示开始下一次匹配的字符位置   source 正则表达式的源文本    重点看一下lastIndex: last">
+<meta name="twitter:description" content="趁热打铁，一并把RegExp对象的属性也回顾一遍吧：  table th:first-of-type {     width: 100px; }      属性 描述     global RegExp 对象是否具有标志 g   ignoreCase RegExp 对象是否具有标志 i   multiline RegExp 对象是否具有标志 m   lastIndex 一个整数，标示开始下一次匹配">
 
 
 
@@ -342,6 +342,12 @@
 
       
         <p>趁热打铁，一并把RegExp对象的属性也回顾一遍吧：</p>
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
+
 <table>
 <thead>
 <tr>
@@ -384,6 +390,7 @@
 <p>replace()参数replacement 可以是字符串，也可以是函数。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Twinkle twinkle little star'</span>;</div><div class="line"><span class="keyword">var</span> result = str.replace(<span class="regexp">/kle/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">word</span>)</span>&#123;  </div><div class="line">	<span class="keyword">return</span> word.substring(<span class="number">0</span>,<span class="number">3</span>).toUpperCase();  </div><div class="line">&#125;);  </div><div class="line">alert(result);  <span class="comment">//TwinKLE twinKLE little star</span></div></pre></td></tr></table></figure>
 <h5 id="split-：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。"><a href="#split-：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。" class="headerlink" title="split()：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。"></a><font color="#f00">split()</font>：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Twinkle twinkle little star'</span>;</div><div class="line">alert(str.split(<span class="string">' '</span>)); <span class="comment">//Twinkle,twinkle,little,star</span></div><div class="line">alert(str.split(<span class="string">''</span>)); <span class="comment">//T,w,i,n,k,l,e, ,t,w,i,n,k,l,e, ,l,i,t,t,l,e, ,s,t,a,r</span></div><div class="line">alert(str.split(<span class="string">' '</span>,<span class="number">2</span>)); <span class="comment">//Twinkle,twinkle</span></div></pre></td></tr></table></figure>
+<p><br><br>下一篇： <a href="https://buding500.github.io/2017/07/05/regexp3/" target="_blank" rel="external">正则表达式的基础用法</a></p>
 
       
     </div>
@@ -429,6 +436,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/05/regexp3/" rel="prev" title="正则表达式的基础用法">
+                正则表达式的基础用法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -500,7 +511,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
