@@ -351,24 +351,47 @@
 <li>查找特定的信息</li>
 <li>查找并替换特定的信息</li>
 </ol>
-<h5 id="正则表达式的匹配规则："><a href="#正则表达式的匹配规则：" class="headerlink" title="正则表达式的匹配规则："></a>正则表达式的匹配规则：</h5><ul>
-<li><font color="#f00">. 英文句号</font>：匹配任意字符。</li>
-<li><font color="#f00">[]中括号</font>：定义一组字符，也称字符集。[和]本身不匹配任何字符，只用作定义。<blockquote>
-<p>[abc]：匹配a或b或c;<br><font color="#f00">区间匹配用 - (连字符)来定义</font><br>[a-z]：匹配小写字母a到z中任意字符;<br>[0-9]：匹配数字0到9中任意字符;<br><font color="#f00">取非匹配：</font>除了字符集里的字符，其它都可以匹配。<br>[^0-9]：匹配不是数字的字符</p>
-</blockquote>
-</li>
-<li><font color="#f00">| 竖线</font>: 表示选择或<blockquote>
-<p>x|y：匹配x或者y</p>
-</blockquote>
-</li>
-</ul>
-<p>接下来的都是元字符了，不过还是分个类比较明了：</p>
+<p>常用的无字符分类列表：</p>
 <style>
 table th:first-of-type {
     width: 100px;
 }
 </style>
 
+<h5 id="基本元字符："><a href="#基本元字符：" class="headerlink" title="基本元字符："></a>基本元字符：</h5><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配任意单个字符</td>
+</tr>
+<tr>
+<td>&#124;</td>
+<td>匹配或操作符</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>匹配字符集合中的一个字符</td>
+</tr>
+<tr>
+<td>[^]</td>
+<td>对字符集合求非</td>
+</tr>
+<tr>
+<td>-</td>
+<td>定义一个区间，如[a-z],放在字符集首位或末尾则匹配本身</td>
+</tr>
+<tr>
+<td>\</td>
+<td>对它后面的字符进行转义</td>
+</tr>
+</tbody>
+</table>
 <h4 id="表示次数的元字符："><a href="#表示次数的元字符：" class="headerlink" title="表示次数的元字符："></a>表示次数的元字符：</h4><table>
 <thead>
 <tr>
@@ -413,11 +436,11 @@ table th:first-of-type {
 <tbody>
 <tr>
 <td>^</td>
-<td>匹配输入字符串的开始位置。如果RegExp对象设置了 m 标志，^ 也匹配 ‘\n’ 或 ‘\r’ 之后的位置</td>
+<td>匹配输入字符串的开始位置</td>
 </tr>
 <tr>
 <td>$</td>
-<td>匹配输入字符串的结束位置。如果RegExp对象设置了 m 标志，$ 也匹配 ‘\n’ 或 ‘\r’ 之前的位置</td>
+<td>匹配输入字符串的结束位置</td>
 </tr>
 <tr>
 <td>\b</td>
@@ -463,7 +486,7 @@ table th:first-of-type {
 </tr>
 </tbody>
 </table>
-<h4 id="其它元字符"><a href="#其它元字符" class="headerlink" title="其它元字符"></a>其它元字符</h4><table>
+<h4 id="特殊元字符"><a href="#特殊元字符" class="headerlink" title="特殊元字符"></a>特殊元字符</h4><table>
 <thead>
 <tr>
 <th>字符</th>
@@ -471,10 +494,6 @@ table th:first-of-type {
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>\</td>
-<td>转义字符</td>
-</tr>
 <tr>
 <td>\d</td>
 <td>匹配一个数字字符。等价于 [0-9]</td>
