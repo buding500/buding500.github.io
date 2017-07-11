@@ -256,6 +256,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/keyboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/11/keyboard/" itemprop="url">jquery键盘事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T22:03:24+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在项目过程中，经常遇到一些表单操作，涉及到表单，自然逃不掉键盘事件。比如：在输入的时候隐藏验证错误提示，在最后一个输入框里输入回车的时候提交表单等等。因为现在项目用的是jquery，想说来整理一下这几个键盘事件。</p>
+<p>jquery键盘事件有以下几个：</p>
+<ul>
+<li>keydown()：当键盘按下时触发；</li>
+<li>keypress()：当键盘按下时触发；</li>
+<li>keyup()：当按键松开时触发，发生在当前获得焦点的元素上</li>
+</ul>
+<p>来看个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"keyBoard"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>keydown：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"keydown"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>keypress：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"keypress"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>keyup：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"keyup"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> i=j=k=<span class="number">0</span>;</div><div class="line">      $(<span class="string">'#keyBoard'</span>).on(<span class="string">'keydown'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        i++;</div><div class="line">        $(<span class="string">'#keydown'</span>).text(i);</div><div class="line">      &#125;);</div><div class="line">      $(<span class="string">'#keyBoard'</span>).on(<span class="string">'keypress'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        j++;</div><div class="line">        $(<span class="string">'#keypress'</span>).text(j);</div><div class="line">      &#125;);</div><div class="line">      $(<span class="string">'#keyBoard'</span>).on(<span class="string">'keyup'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        k++;</div><div class="line">        $(<span class="string">'#keyup'</span>).text(k);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>结果是什么呢：</p>
+<ul>
+<li>当我们一个字符一个字符输入时，三者表现一致；</li>
+<li>当我们一直按着某个字符键，keydown和keypress一直在发生变化，并且次数一致；</li>
+<li>这个时候输入框满了，我们删除一些字符。然后：区别出来啦！！！这个时候keydow发生了变化，而keypress没有变化，也就是backspace键keypress识别不了；</li>
+<li>猜测keypress不能识别功能键，然后按下ctrl、shift、tab、delete、CapsLock等功能键来试一试，果然keypress没有反应，而keydown数字一直在变化；</li>
+<li>然后我们来测试一下特殊字符，比如?&lt;&gt;{}[]’’””:;等，发现keypress和keydown表现一致；</li>
+<li>最后我们来试一下中中文，这时区别又出来了，keypress不能识别中文，不管是中文汉字还是中文字符（比如：？《》｛｝【】），而keydown只要按下键就会识别，keyup只要松开键也会有识别。总的来说：keypress没有办法识别双字节字符！</li>
+</ul>
+<h5 id="最后来总结一下："><a href="#最后来总结一下：" class="headerlink" title="最后来总结一下："></a>最后来总结一下：</h5><ol>
+<li>keydown和keypress在没有输入特殊字符的情况下表现一致；</li>
+<li>keyup只在松开键的时候触发；</li>
+<li>keypress不能识别功能键和双字节字符。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/07/regexp4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1518,7 +1674,7 @@ table th:first-of-type {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1529,7 +1685,7 @@ table th:first-of-type {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
