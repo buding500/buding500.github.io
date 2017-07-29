@@ -256,6 +256,146 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/math/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/23/math/" itemprop="url">数字相关Math对象和Number对象常用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T16:59:27+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法：</p>
+<p>Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。</p>
+<h5 id="常用的Math对象方法："><a href="#常用的Math对象方法：" class="headerlink" title="常用的Math对象方法："></a>常用的Math对象方法：</h5><h6 id="abs-x-：返回x绝对值"><a href="#abs-x-：返回x绝对值" class="headerlink" title="abs(x)：返回x绝对值"></a>abs(x)：返回x绝对值</h6><h6 id="min-x-y-：返回x、y中最小值"><a href="#min-x-y-：返回x、y中最小值" class="headerlink" title="min(x,y)：返回x、y中最小值"></a>min(x,y)：返回x、y中最小值</h6><h6 id="max-x-y-：返回x、y中最大值"><a href="#max-x-y-：返回x、y中最大值" class="headerlink" title="max(x,y)：返回x、y中最大值"></a>max(x,y)：返回x、y中最大值</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.abs(<span class="number">-20.022</span>);<span class="comment">//20.022</span></div><div class="line"><span class="built_in">Math</span>.min(<span class="number">10</span>,<span class="number">20</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">30</span>);<span class="comment">//30</span></div></pre></td></tr></table></figure>
+<h6 id="ceil-x-：对x进行向上舍入成整数"><a href="#ceil-x-：对x进行向上舍入成整数" class="headerlink" title="ceil(x)：对x进行向上舍入成整数"></a>ceil(x)：对x进行向上舍入成整数</h6><h6 id="floor-x-：对x进行向下舍入成整数"><a href="#floor-x-：对x进行向下舍入成整数" class="headerlink" title="floor(x)：对x进行向下舍入成整数"></a>floor(x)：对x进行向下舍入成整数</h6><h6 id="round-x-：对x进行四舍五入成整数"><a href="#round-x-：对x进行四舍五入成整数" class="headerlink" title="round(x)：对x进行四舍五入成整数"></a>round(x)：对x进行四舍五入成整数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">10.12</span>);<span class="comment">//11</span></div><div class="line"><span class="built_in">Math</span>.floor(<span class="number">10.82</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.12</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.82</span>);<span class="comment">//11</span></div></pre></td></tr></table></figure>
+<h6 id="random-：返回-0-1-之间的随机数"><a href="#random-：返回-0-1-之间的随机数" class="headerlink" title="random()：返回 0 ~ 1 之间的随机数"></a>random()：返回 0 ~ 1 之间的随机数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*<span class="number">100</span>+<span class="number">1</span>);<span class="comment">//1-100随机整数</span></div></pre></td></tr></table></figure>
+<h5 id="Number对象有构建函数，它最有用的方法是toFixed"><a href="#Number对象有构建函数，它最有用的方法是toFixed" class="headerlink" title="Number对象有构建函数，它最有用的方法是toFixed():"></a>Number对象有构建函数，它最有用的方法是toFixed():</h5><h6 id="toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><a href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20" class="headerlink" title="toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"></a>toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n= <span class="number">12.34</span>;</div><div class="line">n.toFixed(<span class="number">0</span>);<span class="comment">//"12"</span></div><div class="line">n.toFixed(<span class="number">1</span>);<span class="comment">//"12.3"</span></div><div class="line">n.toFixed(<span class="number">5</span>);<span class="comment">//"12.34000"</span></div></pre></td></tr></table></figure>
+<p>foFixed()用来截取小数位非常好用，不足的可以补0。<br>注意几点：</p>
+<h6 id="1、n必须是Number类型"><a href="#1、n必须是Number类型" class="headerlink" title="1、n必须是Number类型"></a>1、n必须是Number类型</h6><h6 id="2、返回的是string类型"><a href="#2、返回的是string类型" class="headerlink" title="2、返回的是string类型"></a>2、返回的是string类型</h6>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/keycode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +488,7 @@
           
             <p>说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。</p>
 <p>键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lastInput = <span class="built_in">document</span>.getElementById(<span class="string">'lastInput'</span>);         </div><div class="line">lastInput.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> key = e.keyCode|| e.which;</div><div class="line">   <span class="keyword">if</span>(key == <span class="number">13</span>)&#123; <span class="comment">//判断是否按下ENTER键</span></div><div class="line">     alert(<span class="string">'按下了ENTER键'</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lastInput = <span class="built_in">document</span>.getElementById(<span class="string">'lastInput'</span>);         </div><div class="line">lastInput.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  e = e || <span class="built_in">window</span>.event;</div><div class="line">   <span class="keyword">var</span> key = e.keyCode|| e.which;</div><div class="line">   <span class="keyword">if</span>(key == <span class="number">13</span>)&#123; <span class="comment">//判断是否按下ENTER键</span></div><div class="line">     alert(<span class="string">'按下了ENTER键'</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>当我们知道某个按键码，想知道对应的字符的时候可以使用fromCharCode()方法：<br>用法：String.fromCharCode(number);</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n = <span class="built_in">String</span>.fromCharCode(<span class="number">65</span>);</div><div class="line">alert(n); <span class="comment">//A</span></div></pre></td></tr></table></figure>
 <style>
@@ -2134,7 +2274,7 @@ table th:first-of-type {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

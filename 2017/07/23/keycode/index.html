@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。 键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单： 1234567var lastInput = document.getEl">
+<meta name="description" content="说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。 键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单： 12345678var lastInput = document.getE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="键盘按键keyCode">
 <meta property="og:url" content="http://yoursite.com/2017/07/23/keycode/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
-<meta property="og:description" content="说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。 键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单： 1234567var lastInput = document.getEl">
-<meta property="og:updated_time" content="2017-07-23T08:39:39.904Z">
+<meta property="og:description" content="说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。 键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单： 12345678var lastInput = document.getE">
+<meta property="og:updated_time" content="2017-07-29T05:44:40.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="键盘按键keyCode">
-<meta name="twitter:description" content="说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。 键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单： 1234567var lastInput = document.getEl">
+<meta name="twitter:description" content="说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。 键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单： 12345678var lastInput = document.getE">
 
 
 
@@ -343,7 +343,7 @@
       
         <p>说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。</p>
 <p>键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lastInput = <span class="built_in">document</span>.getElementById(<span class="string">'lastInput'</span>);         </div><div class="line">lastInput.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> key = e.keyCode|| e.which;</div><div class="line">   <span class="keyword">if</span>(key == <span class="number">13</span>)&#123; <span class="comment">//判断是否按下ENTER键</span></div><div class="line">     alert(<span class="string">'按下了ENTER键'</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lastInput = <span class="built_in">document</span>.getElementById(<span class="string">'lastInput'</span>);         </div><div class="line">lastInput.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  e = e || <span class="built_in">window</span>.event;</div><div class="line">   <span class="keyword">var</span> key = e.keyCode|| e.which;</div><div class="line">   <span class="keyword">if</span>(key == <span class="number">13</span>)&#123; <span class="comment">//判断是否按下ENTER键</span></div><div class="line">     alert(<span class="string">'按下了ENTER键'</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>当我们知道某个按键码，想知道对应的字符的时候可以使用fromCharCode()方法：<br>用法：String.fromCharCode(number);</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n = <span class="built_in">String</span>.fromCharCode(<span class="number">65</span>);</div><div class="line">alert(n); <span class="comment">//A</span></div></pre></td></tr></table></figure>
 <style>
@@ -714,6 +714,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/07/23/math/" rel="prev" title="数字相关Math对象和Number对象常用方法">
+                数字相关Math对象和Number对象常用方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -784,7 +788,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
