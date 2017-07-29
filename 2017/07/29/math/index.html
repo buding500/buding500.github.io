@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
+<meta name="description" content="在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法： Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。 常用的Math对象方法：abs(x)：返回x绝对值min(x,y)：返回x、y中最小值max(x,y)：返回x、y中最大值123Math.abs(-20.022)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Array数组基础知识">
-<meta property="og:url" content="http://yoursite.com/2017/06/30/array/index.html">
+<meta property="og:title" content="数字相关Math对象和Number对象常用方法">
+<meta property="og:url" content="http://yoursite.com/2017/07/29/math/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
-<meta property="og:description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
-<meta property="og:updated_time" content="2017-07-02T14:13:46.255Z">
+<meta property="og:description" content="在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法： Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。 常用的Math对象方法：abs(x)：返回x绝对值min(x,y)：返回x、y中最小值max(x,y)：返回x、y中最大值123Math.abs(-20.022)">
+<meta property="og:updated_time" content="2017-07-29T05:50:18.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Array数组基础知识">
-<meta name="twitter:description" content="javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。 创建数组12345var array = new Array(3); //创建一个包含3项的数组var array = new Array(&apos;a&apos;); //创建一个只有一项为‘a’的数组var array = []; //创建一个空数组v">
+<meta name="twitter:title" content="数字相关Math对象和Number对象常用方法">
+<meta name="twitter:description" content="在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法： Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。 常用的Math对象方法：abs(x)：返回x绝对值min(x,y)：返回x、y中最小值max(x,y)：返回x、y中最大值123Math.abs(-20.022)">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/30/array/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/29/math/"/>
 
 
 
 
 
-  <title>Array数组基础知识 | Gezi's Notes</title>
+  <title>数字相关Math对象和Number对象常用方法 | Gezi's Notes</title>
   
 
 
@@ -255,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/array/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/math/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="格子">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Array数组基础知识</h1>
+          <h1 class="post-title" itemprop="name headline">数字相关Math对象和Number对象常用方法</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T22:10:42+08:00">
-                2017-06-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:52:12+08:00">
+                2017-07-29
               </time>
             
 
@@ -341,22 +341,14 @@
       
 
       
-        <p>javascript中除了object之外，数组应该是最常用的类型了。javascript中的数组非常强大，可以保存任意形式的数据，并且长度也可以随时进行调整。</p>
-<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>); <span class="comment">//创建一个包含3项的数组</span></div><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'a'</span>); <span class="comment">//创建一个只有一项为‘a’的数组</span></div><div class="line"><span class="keyword">var</span> array = []; <span class="comment">//创建一个空数组</span></div><div class="line"><span class="keyword">var</span> array = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]; <span class="comment">//创建一个内容为a,b,c三项的数组</span></div><div class="line"><span class="keyword">var</span> array = [<span class="number">3</span>]; <span class="comment">//创建一个只一项为3的数组 ***谨防掉坑</span></div></pre></td></tr></table></figure>
-<h2 id="获取数组项"><a href="#获取数组项" class="headerlink" title="获取数组项"></a>获取数组项</h2><p>获取数组项非常简单，采用下标方式即可,下标索引从0开始：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>, <span class="string">'blue'</span>];</div><div class="line">colors[<span class="number">0</span>]; <span class="comment">//red</span></div><div class="line">colors[<span class="number">3</span>]; <span class="comment">//undefined 数组中没有第四项，默认为undefined</span></div></pre></td></tr></table></figure>
-<h2 id="默认属性"><a href="#默认属性" class="headerlink" title="默认属性"></a>默认属性</h2><p>数组一旦创建，默认有就 <font color="#f40">length</font> 属性，该属性用来保存数组的项数；我们可以通过设置数组的length属性来向数组的末尾进行添加和删除项:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(colors.length); <span class="comment">//3</span></div><div class="line">colors.length = <span class="number">5</span>; <span class="comment">//设置数组长度为5,也就是向数组里添加两项</span></div><div class="line">colors[<span class="number">3</span>] = <span class="string">'orange'</span>; <span class="comment">//设置第四项为'orange'</span></div><div class="line">colors[<span class="number">4</span>] = <span class="string">'green'</span>; <span class="comment">//设置最后一项为'green'</span></div><div class="line"><span class="built_in">console</span>.log(colors.length,colors[<span class="number">3</span>],colors[<span class="number">4</span>]); <span class="comment">//5 "orange" "green"</span></div><div class="line">colors.length = <span class="number">4</span>; <span class="comment">//删除最后一项</span></div><div class="line"><span class="built_in">console</span>.log(colors.length,colors[<span class="number">3</span>],colors[<span class="number">4</span>]) <span class="comment">//4 "orange" undefined</span></div></pre></td></tr></table></figure></p>
-<h2 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h2><p>所有的对象都有 <font color="#f40">toString()</font> 、 <font color="#f40">valueOf()</font> 和 <font color="#f40">toLocalString()</font> 方法,当然数组也有这几个转换方法。toString()方法和valueOf()方法会返回相同的值，均为每个项的字符串拼接而成的用逗号分隔的字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">alert(colors.toString()); <span class="comment">//red,yellow,blue,orange</span></div><div class="line">alert(colors.valueOf()); <span class="comment">//red,yellow,blue,orange</span></div><div class="line">alert(colors); <span class="comment">//red,yellow,blue,orange</span></div></pre></td></tr></table></figure>
-<p>这里使用alert()输出，主要是因为alert()参数只能是字符串，方便比较。三者输出的内容是一样，即便我们不使用toString()和valueOf()显示调用，在alert()中它也会在后台调用toString()方法，得到的结果与显示toString()是一样的。</p>
-<p>数组在使用toLocalString()方法时，它调用的是数组每一项的toLocalString()方法，而不是toString()方法。</p>
-<p>除了前三种方法， <font color="#f40">join()</font> 方法也可以把数组转换成字符串，join()方法只接收一个参数，即用来分隔数组项的字符串，如果不传，默认为逗号来作分隔符。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(colors.join(<span class="string">','</span>)); <span class="comment">//red,yellow,blue,orange</span></div><div class="line"><span class="built_in">console</span>.log(colors.join(<span class="string">'&amp;'</span>)); <span class="comment">//red&amp;yellow&amp;blue&amp;orange</span></div><div class="line"><span class="built_in">console</span>.log(colors.join()); <span class="comment">//red,yellow,blue,orange</span></div></pre></td></tr></table></figure>
-<h2 id="检测数组类型"><a href="#检测数组类型" class="headerlink" title="检测数组类型"></a>检测数组类型</h2><p>检测数据类型有两种方式： <font color="#f40">instanceof</font> 和 es5提出的 <font color="#f40">Array.isArray</font> ; 当我们的页面中包含iframe或者多个框架时,我们应该用Array.isArray来进行类型检测。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">//true</span></div><div class="line"><span class="built_in">Array</span>.isArray(colors); <span class="comment">//true</span></div></pre></td></tr></table></figure>
-<p>下一篇： <a href="https://buding500.github.io/2017/07/01/array2/" target="_blank" rel="external">数组项操作方法</a></p>
-<hr>
-
+        <p>在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法：</p>
+<p>Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。</p>
+<h5 id="常用的Math对象方法："><a href="#常用的Math对象方法：" class="headerlink" title="常用的Math对象方法："></a>常用的Math对象方法：</h5><h6 id="abs-x-：返回x绝对值"><a href="#abs-x-：返回x绝对值" class="headerlink" title="abs(x)：返回x绝对值"></a>abs(x)：返回x绝对值</h6><h6 id="min-x-y-：返回x、y中最小值"><a href="#min-x-y-：返回x、y中最小值" class="headerlink" title="min(x,y)：返回x、y中最小值"></a>min(x,y)：返回x、y中最小值</h6><h6 id="max-x-y-：返回x、y中最大值"><a href="#max-x-y-：返回x、y中最大值" class="headerlink" title="max(x,y)：返回x、y中最大值"></a>max(x,y)：返回x、y中最大值</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.abs(<span class="number">-20.022</span>);<span class="comment">//20.022</span></div><div class="line"><span class="built_in">Math</span>.min(<span class="number">10</span>,<span class="number">20</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">30</span>);<span class="comment">//30</span></div></pre></td></tr></table></figure>
+<h6 id="ceil-x-：对x进行向上舍入成整数"><a href="#ceil-x-：对x进行向上舍入成整数" class="headerlink" title="ceil(x)：对x进行向上舍入成整数"></a>ceil(x)：对x进行向上舍入成整数</h6><h6 id="floor-x-：对x进行向下舍入成整数"><a href="#floor-x-：对x进行向下舍入成整数" class="headerlink" title="floor(x)：对x进行向下舍入成整数"></a>floor(x)：对x进行向下舍入成整数</h6><h6 id="round-x-：对x进行四舍五入成整数"><a href="#round-x-：对x进行四舍五入成整数" class="headerlink" title="round(x)：对x进行四舍五入成整数"></a>round(x)：对x进行四舍五入成整数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">10.12</span>);<span class="comment">//11</span></div><div class="line"><span class="built_in">Math</span>.floor(<span class="number">10.82</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.12</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.82</span>);<span class="comment">//11</span></div></pre></td></tr></table></figure>
+<h6 id="random-：返回-0-1-之间的随机数"><a href="#random-：返回-0-1-之间的随机数" class="headerlink" title="random()：返回 0 ~ 1 之间的随机数"></a>random()：返回 0 ~ 1 之间的随机数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*<span class="number">100</span>+<span class="number">1</span>);<span class="comment">//1-100随机整数</span></div></pre></td></tr></table></figure>
+<h5 id="Number对象有构建函数，它最有用的方法是toFixed"><a href="#Number对象有构建函数，它最有用的方法是toFixed" class="headerlink" title="Number对象有构建函数，它最有用的方法是toFixed():"></a>Number对象有构建函数，它最有用的方法是toFixed():</h5><h6 id="toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><a href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20" class="headerlink" title="toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"></a>toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n= <span class="number">12.34</span>;</div><div class="line">n.toFixed(<span class="number">0</span>);<span class="comment">//"12"</span></div><div class="line">n.toFixed(<span class="number">1</span>);<span class="comment">//"12.3"</span></div><div class="line">n.toFixed(<span class="number">5</span>);<span class="comment">//"12.34000"</span></div></pre></td></tr></table></figure>
+<p>foFixed()用来截取小数位非常好用，不足的可以补0。<br>注意几点：</p>
+<h6 id="1、n必须是Number类型"><a href="#1、n必须是Number类型" class="headerlink" title="1、n必须是Number类型"></a>1、n必须是Number类型</h6><h6 id="2、返回的是string类型"><a href="#2、返回的是string类型" class="headerlink" title="2、返回的是string类型"></a>2、返回的是string类型</h6>
       
     </div>
 
@@ -392,15 +384,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/29/parse/" rel="next" title="javascript中与parse有关的方法">
+                <i class="fa fa-chevron-left"></i> javascript中与parse有关的方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/01/array2/" rel="prev" title="数组项操作方法">
-                数组项操作方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数组"><span class="nav-number">1.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取数组项"><span class="nav-number">2.</span> <span class="nav-text">获取数组项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认属性"><span class="nav-number">3.</span> <span class="nav-text">默认属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换方法"><span class="nav-number">4.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测数组类型"><span class="nav-number">5.</span> <span class="nav-text">检测数组类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用的Math对象方法："><span class="nav-number">1.</span> <span class="nav-text">常用的Math对象方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#abs-x-：返回x绝对值"><span class="nav-number">1.1.</span> <span class="nav-text">abs(x)：返回x绝对值</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#min-x-y-：返回x、y中最小值"><span class="nav-number">1.2.</span> <span class="nav-text">min(x,y)：返回x、y中最小值</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#max-x-y-：返回x、y中最大值"><span class="nav-number">1.3.</span> <span class="nav-text">max(x,y)：返回x、y中最大值</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ceil-x-：对x进行向上舍入成整数"><span class="nav-number">1.4.</span> <span class="nav-text">ceil(x)：对x进行向上舍入成整数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#floor-x-：对x进行向下舍入成整数"><span class="nav-number">1.5.</span> <span class="nav-text">floor(x)：对x进行向下舍入成整数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#round-x-：对x进行四舍五入成整数"><span class="nav-number">1.6.</span> <span class="nav-text">round(x)：对x进行四舍五入成整数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#random-：返回-0-1-之间的随机数"><span class="nav-number">1.7.</span> <span class="nav-text">random()：返回 0 ~ 1 之间的随机数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Number对象有构建函数，它最有用的方法是toFixed"><span class="nav-number">2.</span> <span class="nav-text">Number对象有构建函数，它最有用的方法是toFixed():</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><span class="nav-number">2.1.</span> <span class="nav-text">toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1、n必须是Number类型"><span class="nav-number">2.2.</span> <span class="nav-text">1、n必须是Number类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、返回的是string类型"><span class="nav-number">2.3.</span> <span class="nav-text">2、返回的是string类型</span></a></li></ol></li></ol></div>
             
 
           </div>
