@@ -256,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/math/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/mouse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="格子">
@@ -275,7 +275,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/29/math/" itemprop="url">数字相关Math对象和Number对象常用方法</a></h1>
+                <a class="post-title-link" href="/2017/08/09/mouse/" itemprop="url">mouse的那些事</a></h1>
         
 
         <div class="post-meta">
@@ -287,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:52:12+08:00">
-                2017-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T20:52:50+08:00">
+                2017-08-09
               </time>
             
 
@@ -310,8 +310,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
                   </a>
                 </span>
 
@@ -346,14 +346,20 @@
       
         
           
-            <p>在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法：</p>
-<p>Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。</p>
-<h5 id="常用的Math对象方法："><a href="#常用的Math对象方法：" class="headerlink" title="常用的Math对象方法："></a>常用的Math对象方法：</h5><h6 id="abs-x-：返回x绝对值"><a href="#abs-x-：返回x绝对值" class="headerlink" title="abs(x)：返回x绝对值"></a>abs(x)：返回x绝对值</h6><h6 id="min-x-y-：返回x、y中最小值"><a href="#min-x-y-：返回x、y中最小值" class="headerlink" title="min(x,y)：返回x、y中最小值"></a>min(x,y)：返回x、y中最小值</h6><h6 id="max-x-y-：返回x、y中最大值"><a href="#max-x-y-：返回x、y中最大值" class="headerlink" title="max(x,y)：返回x、y中最大值"></a>max(x,y)：返回x、y中最大值</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.abs(<span class="number">-20.022</span>);<span class="comment">//20.022</span></div><div class="line"><span class="built_in">Math</span>.min(<span class="number">10</span>,<span class="number">20</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">30</span>);<span class="comment">//30</span></div></pre></td></tr></table></figure>
-<h6 id="ceil-x-：对x进行向上舍入成整数"><a href="#ceil-x-：对x进行向上舍入成整数" class="headerlink" title="ceil(x)：对x进行向上舍入成整数"></a>ceil(x)：对x进行向上舍入成整数</h6><h6 id="floor-x-：对x进行向下舍入成整数"><a href="#floor-x-：对x进行向下舍入成整数" class="headerlink" title="floor(x)：对x进行向下舍入成整数"></a>floor(x)：对x进行向下舍入成整数</h6><h6 id="round-x-：对x进行四舍五入成整数"><a href="#round-x-：对x进行四舍五入成整数" class="headerlink" title="round(x)：对x进行四舍五入成整数"></a>round(x)：对x进行四舍五入成整数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">10.12</span>);<span class="comment">//11</span></div><div class="line"><span class="built_in">Math</span>.floor(<span class="number">10.82</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.12</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.82</span>);<span class="comment">//11</span></div></pre></td></tr></table></figure>
-<h6 id="random-：返回-0-1-之间的随机数"><a href="#random-：返回-0-1-之间的随机数" class="headerlink" title="random()：返回 0 ~ 1 之间的随机数"></a>random()：返回 0 ~ 1 之间的随机数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*<span class="number">100</span>+<span class="number">1</span>);<span class="comment">//1-100随机整数</span></div></pre></td></tr></table></figure>
-<h5 id="Number对象有构建函数，它最有用的方法是toFixed"><a href="#Number对象有构建函数，它最有用的方法是toFixed" class="headerlink" title="Number对象有构建函数，它最有用的方法是toFixed():"></a>Number对象有构建函数，它最有用的方法是toFixed():</h5><h6 id="toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><a href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20" class="headerlink" title="toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"></a>toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n= <span class="number">12.34</span>;</div><div class="line">n.toFixed(<span class="number">0</span>);<span class="comment">//"12"</span></div><div class="line">n.toFixed(<span class="number">1</span>);<span class="comment">//"12.3"</span></div><div class="line">n.toFixed(<span class="number">5</span>);<span class="comment">//"12.34000"</span></div></pre></td></tr></table></figure>
-<p>foFixed()用来截取小数位非常好用，不足的可以补0。<br>注意几点：</p>
-<h6 id="1、n必须是Number类型"><a href="#1、n必须是Number类型" class="headerlink" title="1、n必须是Number类型"></a>1、n必须是Number类型</h6><h6 id="2、返回的是string类型"><a href="#2、返回的是string类型" class="headerlink" title="2、返回的是string类型"></a>2、返回的是string类型</h6>
+            <p>老是在写鼠标事件，却没认真仔细的区别好它们，今天来总结下它们的用法和区别。jquery里的mouse事件一共有7个，它们分别是：</p>
+<style>
+.f40{color:#f40;}
+</style>
+
+<h5 id="mouseenter-鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。"><a href="#mouseenter-鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。" class="headerlink" title="mouseenter: 鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。"></a><span class="f40">mouseenter:</span> 鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。</h5><h5 id="mouseleave：-鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。"><a href="#mouseleave：-鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。" class="headerlink" title="mouseleave： 鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。"></a><span class="f40">mouseleave：</span> 鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。</h5><h5 id="mouseover：-当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。"><a href="#mouseover：-当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。" class="headerlink" title="mouseover： 当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。"></a><span class="f40">mouseover：</span> 当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。</h5><h5 id="mouseout：-当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件，-大多数情况下与mouseover一起使用。"><a href="#mouseout：-当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件，-大多数情况下与mouseover一起使用。" class="headerlink" title="mouseout： 当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件， 大多数情况下与mouseover一起使用。"></a><span class="f40">mouseout：</span> 当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件， 大多数情况下与mouseover一起使用。</h5><h5 id="mousedown-当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。"><a href="#mousedown-当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。" class="headerlink" title="mousedown:  当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。"></a><span class="f40">mousedown: </span> 当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。</h5><h5 id="mouseup：-当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。"><a href="#mouseup：-当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。" class="headerlink" title="mouseup：  当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。"></a><span class="f40">mouseup： </span> 当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。</h5><h5 id="mousemove-当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其-clientX和-clientY属性代表鼠标的坐标。"><a href="#mousemove-当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其-clientX和-clientY属性代表鼠标的坐标。" class="headerlink" title="mousemove:  当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其.clientX和.clientY属性代表鼠标的坐标。"></a><span class="f40">mousemove: </span> 当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其.clientX和.clientY属性代表鼠标的坐标。</h5><p>描述写了这么多，还是来看代码比较清楚明了：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">200px</span>; <span class="attribute">background</span>:<span class="number">#eee</span>; <span class="attribute">margin</span>:<span class="number">20px</span>;&#125;</div><div class="line"><span class="selector-class">.ele</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:<span class="number">100px</span>;<span class="attribute">background</span>:<span class="number">#ddd</span>;&#125;</div><div class="line"><span class="selector-class">.bg</span>&#123;<span class="attribute">background</span>:blue;&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"mouseEnterBox"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ele"</span>&gt;</span>mouserenter:<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"mouseOverBox"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ele"</span>&gt;</span>mouseover:<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ele"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> x=y=<span class="number">0</span>;</div><div class="line">    <span class="comment">//mouseenter</span></div><div class="line">    $(<span class="string">'#mouseEnterBox'</span>).on(<span class="string">'mouseenter'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       $(<span class="keyword">this</span>).addClass(<span class="string">'bg'</span>).children(<span class="string">'.ele'</span>).text(<span class="string">'mouseenter：'</span> + (x++));</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//mouseleave</span></div><div class="line">    $(<span class="string">'#mouseEnterBox'</span>).on(<span class="string">'mouseleave'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).removeClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">//mouseover</span></div><div class="line">    $(<span class="string">'#mouseOverBox'</span>).on(<span class="string">'mouseover'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).addClass(<span class="string">'bg'</span>).children(<span class="string">'.ele'</span>).text(<span class="string">'mouseover:'</span> + (y++));</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//mouseout</span></div><div class="line">    $(<span class="string">'#mouseOverBox'</span>).on(<span class="string">'mouseout'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).removeClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);  </div><div class="line"></div><div class="line">    <span class="comment">//mousedown</span></div><div class="line">    $(<span class="string">'#box'</span>).on(<span class="string">'mousedown'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).addClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//mouseup</span></div><div class="line">    $(<span class="string">'#box'</span>).on(<span class="string">'mouseup'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).removeClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">//mousemove</span></div><div class="line">    $(<span class="string">'#box'</span>).on(<span class="string">'mousemove'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).find(<span class="string">'.ele'</span>).text(<span class="string">'X:'</span> + e.clientX +<span class="string">', Y:'</span> + e.clientY );      </div><div class="line">    &#125;);  </div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>对于mouseenter和mouseover的区别，只需要鼠标来回移动到所选元素和其子元素之间就可以看出来。mouseover事件在鼠标移动到子元素上时也会触发，而mouseenter则不会。</li>
+<li>mousedown和mouseup只有在按键时才会触发。</li>
+<li>mousemove只在要触发该事件的元素上方都会触发，Event对象事件用来记录鼠标的位置。</li>
+</ul>
+
           
         
       
@@ -493,6 +499,146 @@
 <p>关于参数的问题可查看：<a href="http://www.cnblogs.com/yingcaiyi/p/4884903.html" target="_blank" rel="external">http://www.cnblogs.com/yingcaiyi/p/4884903.html</a></p>
 <h5 id="JSON-parse-：用于从一个字符串中解析出json-对象。"><a href="#JSON-parse-：用于从一个字符串中解析出json-对象。" class="headerlink" title="JSON.parse()：用于从一个字符串中解析出json 对象。"></a>JSON.parse()：用于从一个字符串中解析出json 对象。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">'&#123;"name":"cpf","age":"23"&#125;'</span>;</div><div class="line"><span class="built_in">JSON</span>.parse(str); <span class="comment">//Object &#123;name: "cpf", age: "23"&#125;</span></div></pre></td></tr></table></figure>
 
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/math/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/29/math/" itemprop="url">数字相关Math对象和Number对象常用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:52:12+08:00">
+                2017-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法：</p>
+<p>Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。</p>
+<h5 id="常用的Math对象方法："><a href="#常用的Math对象方法：" class="headerlink" title="常用的Math对象方法："></a>常用的Math对象方法：</h5><h6 id="abs-x-：返回x绝对值"><a href="#abs-x-：返回x绝对值" class="headerlink" title="abs(x)：返回x绝对值"></a>abs(x)：返回x绝对值</h6><h6 id="min-x-y-：返回x、y中最小值"><a href="#min-x-y-：返回x、y中最小值" class="headerlink" title="min(x,y)：返回x、y中最小值"></a>min(x,y)：返回x、y中最小值</h6><h6 id="max-x-y-：返回x、y中最大值"><a href="#max-x-y-：返回x、y中最大值" class="headerlink" title="max(x,y)：返回x、y中最大值"></a>max(x,y)：返回x、y中最大值</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.abs(<span class="number">-20.022</span>);<span class="comment">//20.022</span></div><div class="line"><span class="built_in">Math</span>.min(<span class="number">10</span>,<span class="number">20</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">30</span>);<span class="comment">//30</span></div></pre></td></tr></table></figure>
+<h6 id="ceil-x-：对x进行向上舍入成整数"><a href="#ceil-x-：对x进行向上舍入成整数" class="headerlink" title="ceil(x)：对x进行向上舍入成整数"></a>ceil(x)：对x进行向上舍入成整数</h6><h6 id="floor-x-：对x进行向下舍入成整数"><a href="#floor-x-：对x进行向下舍入成整数" class="headerlink" title="floor(x)：对x进行向下舍入成整数"></a>floor(x)：对x进行向下舍入成整数</h6><h6 id="round-x-：对x进行四舍五入成整数"><a href="#round-x-：对x进行四舍五入成整数" class="headerlink" title="round(x)：对x进行四舍五入成整数"></a>round(x)：对x进行四舍五入成整数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">10.12</span>);<span class="comment">//11</span></div><div class="line"><span class="built_in">Math</span>.floor(<span class="number">10.82</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.12</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.82</span>);<span class="comment">//11</span></div></pre></td></tr></table></figure>
+<h6 id="random-：返回-0-1-之间的随机数"><a href="#random-：返回-0-1-之间的随机数" class="headerlink" title="random()：返回 0 ~ 1 之间的随机数"></a>random()：返回 0 ~ 1 之间的随机数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*<span class="number">100</span>+<span class="number">1</span>);<span class="comment">//1-100随机整数</span></div></pre></td></tr></table></figure>
+<h5 id="Number对象有构建函数，它最有用的方法是toFixed"><a href="#Number对象有构建函数，它最有用的方法是toFixed" class="headerlink" title="Number对象有构建函数，它最有用的方法是toFixed():"></a>Number对象有构建函数，它最有用的方法是toFixed():</h5><h6 id="toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><a href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20" class="headerlink" title="toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"></a>toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n= <span class="number">12.34</span>;</div><div class="line">n.toFixed(<span class="number">0</span>);<span class="comment">//"12"</span></div><div class="line">n.toFixed(<span class="number">1</span>);<span class="comment">//"12.3"</span></div><div class="line">n.toFixed(<span class="number">5</span>);<span class="comment">//"12.34000"</span></div></pre></td></tr></table></figure>
+<p>foFixed()用来截取小数位非常好用，不足的可以补0。<br>注意几点：</p>
+<h6 id="1、n必须是Number类型"><a href="#1、n必须是Number类型" class="headerlink" title="1、n必须是Number类型"></a>1、n必须是Number类型</h6><h6 id="2、返回的是string类型"><a href="#2、返回的是string类型" class="headerlink" title="2、返回的是string类型"></a>2、返回的是string类型</h6>
           
         
       
@@ -2073,153 +2219,6 @@ table th:first-of-type {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/01/array2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/01/array2/" itemprop="url">数组项操作方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-01T21:22:41+08:00">
-                2017-07-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="push-：向数组末尾添加任意项，返回数组长度。"><a href="#push-：向数组末尾添加任意项，返回数组长度。" class="headerlink" title="push()：向数组末尾添加任意项，返回数组长度。"></a><font color="#f40">push()</font>：向数组末尾添加任意项，返回数组长度。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>];</div><div class="line"><span class="keyword">var</span> length = colors.push(<span class="string">'blue'</span>, <span class="string">'orange'</span>, <span class="string">'green'</span>); <span class="comment">//向数组中添加三项</span></div><div class="line"><span class="built_in">console</span>.log(length);  <span class="comment">//5</span></div></pre></td></tr></table></figure>
-<h5 id="pop-：从数组的末尾移除一项，返回移除的项。"><a href="#pop-：从数组的末尾移除一项，返回移除的项。" class="headerlink" title="pop()：从数组的末尾移除一项，返回移除的项。"></a><font color="#f40">pop()</font>：从数组的末尾移除一项，返回移除的项。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> item = colors.pop(); <span class="comment">//取得最后一项</span></div><div class="line"><span class="built_in">console</span>.log(item); <span class="comment">//green</span></div></pre></td></tr></table></figure>
-<h5 id="unshift-：在数组头部添加任意项，返回数组长度。"><a href="#unshift-：在数组头部添加任意项，返回数组长度。" class="headerlink" title="unshift()：在数组头部添加任意项，返回数组长度。"></a><font color="#f40">unshift()</font>：在数组头部添加任意项，返回数组长度。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">length = colors.unshift(<span class="string">'pink'</span>, <span class="string">'purple'</span>); <span class="comment">//向数组头部添加两项</span></div><div class="line"><span class="built_in">console</span>.log(length);  <span class="comment">//6</span></div></pre></td></tr></table></figure>
-<h5 id="shift-：移除数组第一项，返回移除的项。"><a href="#shift-：移除数组第一项，返回移除的项。" class="headerlink" title="shift()：移除数组第一项，返回移除的项。"></a><font color="#f40">shift()</font>：移除数组第一项，返回移除的项。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">item = colors.shift(); <span class="comment">//取得第一项</span></div><div class="line"><span class="built_in">console</span>.log(item); <span class="comment">//pink</span></div></pre></td></tr></table></figure>
-<p>有了这四个方法，我们就可以在数组的头和尾进行一些操作，比如模拟队列，在尾部添加项，在头部移除项，这时候只用使用push()和shift()就可以了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> animals = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> count = animals.push(<span class="string">'dog'</span>, <span class="string">'cat'</span>); <span class="comment">//尾部添加</span></div><div class="line"><span class="built_in">console</span>.log(count); <span class="comment">//2</span></div><div class="line">count = animals.push(<span class="string">'bear'</span>); <span class="comment">//尾部再添加一项</span></div><div class="line"><span class="built_in">console</span>.log(count); <span class="comment">//3</span></div><div class="line"><span class="keyword">var</span> item = animals.shift(); <span class="comment">//头部移除</span></div><div class="line"><span class="built_in">console</span>.log(item); <span class="comment">//dog</span></div></pre></td></tr></table></figure>
-<p>上面的反向操作也是可以实现的，即在数组的头部添加项，在尾部移除项，使用unshift()和pop();</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> animals = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> count = animals.unshift(<span class="string">'dog'</span>, <span class="string">'cat'</span>); <span class="comment">//头部添加</span></div><div class="line"><span class="built_in">console</span>.log(count); <span class="comment">//2</span></div><div class="line">count = animals.unshift(<span class="string">'bear'</span>); <span class="comment">//头部再添加一项</span></div><div class="line"><span class="built_in">console</span>.log(count); <span class="comment">//3</span></div><div class="line"><span class="keyword">var</span> item = animals.pop(); <span class="comment">//尾部移除</span></div><div class="line"><span class="built_in">console</span>.log(item); <span class="comment">//cat</span></div></pre></td></tr></table></figure>
-<h5 id="reverse-：反转数组项的顺序，返回排序后的数组。"><a href="#reverse-：反转数组项的顺序，返回排序后的数组。" class="headerlink" title="reverse()：反转数组项的顺序，返回排序后的数组。"></a><font color="#f40">reverse()</font>：反转数组项的顺序，返回排序后的数组。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</div><div class="line">numbers.reverse(); <span class="comment">//反转顺序</span></div><div class="line"><span class="built_in">console</span>.log(numbers); <span class="comment">//5, 4, 3, 2, 1</span></div></pre></td></tr></table></figure>
-<h5 id="sort-：按升序排列数组项，返回排序后的数组。"><a href="#sort-：按升序排列数组项，返回排序后的数组。" class="headerlink" title="sort()：按升序排列数组项，返回排序后的数组。"></a><font color="#f40">sort()</font>：按升序排列数组项，返回排序后的数组。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">20</span>];</div><div class="line">numbers.sort();</div><div class="line"><span class="built_in">console</span>.log(numbers); <span class="comment">//1, 10, 15, 20, 5</span></div></pre></td></tr></table></figure>
-<p>看到这个结果是不是很诧异？sort()方法会调用数组每项的toString()方法，然后将得到的字符串进行比较来进行排序。当然这不是我们想要的结果，怎么办呢? sort()方法可以接收一个比较函数作为参数，让我们来指定如何排序。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1, value2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> value1 - value2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">15</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">20</span>];</div><div class="line">numbers.sort(compare);</div><div class="line"><span class="built_in">console</span>.log(numbers); <span class="comment">//1, 5, 10, 15, 20</span></div></pre></td></tr></table></figure>
-<h5 id="indexOf-和-lastIndexOf-：两者均接收两个参数：要查找的项和查找起始位置-可选-；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf-是从数组的开头向后查找，lastIndexOf-则是从数组的末尾向前查找。"><a href="#indexOf-和-lastIndexOf-：两者均接收两个参数：要查找的项和查找起始位置-可选-；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf-是从数组的开头向后查找，lastIndexOf-则是从数组的末尾向前查找。" class="headerlink" title="indexOf() 和 lastIndexOf()：两者均接收两个参数：要查找的项和查找起始位置(可选)；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf()是从数组的开头向后查找，lastIndexOf()则是从数组的末尾向前查找。"></a><font color="#f40">indexOf()</font> 和 <font color="#f40">lastIndexOf()</font>：两者均接收两个参数：要查找的项和查找起始位置(可选)；两者都返回查找项在数组中的位置，在没有找到的情况下返回-1。indexOf()是从数组的开头向后查找，lastIndexOf()则是从数组的末尾向前查找。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</div><div class="line"><span class="built_in">console</span>.log(numbers.indexOf(<span class="number">3</span>)); <span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(numbers.lastIndexOf(<span class="number">3</span>)); <span class="comment">//6</span></div><div class="line"><span class="built_in">console</span>.log(numbers.indexOf(<span class="number">3</span>,<span class="number">3</span>)); <span class="comment">//6</span></div><div class="line"><span class="built_in">console</span>.log(numbers.lastIndexOf(<span class="number">3</span>,<span class="number">3</span>)); <span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(numbers.indexOf(<span class="number">9</span>)); <span class="comment">//-1</span></div><div class="line"><span class="built_in">console</span>.log(numbers.lastIndexOf(<span class="number">9</span>)); <span class="comment">//-1</span></div></pre></td></tr></table></figure>
-<p>下一篇： <a href="https://buding500.github.io/2017/07/02/array3/" target="_blank" rel="external">数组操作方法</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2269,7 +2268,7 @@ table th:first-of-type {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
