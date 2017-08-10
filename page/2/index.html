@@ -256,6 +256,150 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/02/array3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/02/array3/" itemprop="url">数组操作方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-02T22:14:39+08:00">
+                2017-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="concat-：基于当前数组中的所有项创建一个新的数组。该方法会先创建当前数组的一个副本，然后把接收到的参数添加到这个副本的末尾，返回新构建的粗数组，并且不影响原有的数组。"><a href="#concat-：基于当前数组中的所有项创建一个新的数组。该方法会先创建当前数组的一个副本，然后把接收到的参数添加到这个副本的末尾，返回新构建的粗数组，并且不影响原有的数组。" class="headerlink" title="concat()：基于当前数组中的所有项创建一个新的数组。该方法会先创建当前数组的一个副本，然后把接收到的参数添加到这个副本的末尾，返回新构建的粗数组，并且不影响原有的数组。"></a><font color="#f40">concat()</font>：基于当前数组中的所有项创建一个新的数组。该方法会先创建当前数组的一个副本，然后把接收到的参数添加到这个副本的末尾，返回新构建的粗数组，并且不影响原有的数组。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>];</div><div class="line"><span class="keyword">var</span> colors2 = colors.concat(<span class="string">'blue'</span>, <span class="string">'orange'</span>, <span class="string">'green'</span>);</div><div class="line">alert(colors2);  <span class="comment">//red,yellow,blue,orange,green</span></div><div class="line">alert(colors);  <span class="comment">//red,yellow</span></div></pre></td></tr></table></figure>
+<h5 id="slice-：基于当前数组中的一个或者多个项创建一个新的数组。该方法接收一个或者两个参数，即要返回项的起始和结束位置。一个参数时，返回从该参数指定位置开始到当前数组末尾的所有项；两个参数时，返回起始位置和结束位置之前的项，但是不包括结束位置的项。slice-方法也不影响原始数组。"><a href="#slice-：基于当前数组中的一个或者多个项创建一个新的数组。该方法接收一个或者两个参数，即要返回项的起始和结束位置。一个参数时，返回从该参数指定位置开始到当前数组末尾的所有项；两个参数时，返回起始位置和结束位置之前的项，但是不包括结束位置的项。slice-方法也不影响原始数组。" class="headerlink" title="slice()：基于当前数组中的一个或者多个项创建一个新的数组。该方法接收一个或者两个参数，即要返回项的起始和结束位置。一个参数时，返回从该参数指定位置开始到当前数组末尾的所有项；两个参数时，返回起始位置和结束位置之前的项，但是不包括结束位置的项。slice()方法也不影响原始数组。"></a><font color="#f40">slice()</font>：基于当前数组中的一个或者多个项创建一个新的数组。该方法接收一个或者两个参数，即要返回项的起始和结束位置。一个参数时，返回从该参数指定位置开始到当前数组末尾的所有项；两个参数时，返回起始位置和结束位置之前的项，但是不包括结束位置的项。slice()方法也不影响原始数组。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>, <span class="string">'blue'</span>, <span class="string">'orange'</span>, <span class="string">'green'</span>];</div><div class="line"><span class="keyword">var</span> colors2 = colors.slice(<span class="number">1</span>);</div><div class="line"><span class="keyword">var</span> colors3 = colors.slice(<span class="number">2</span>, <span class="number">4</span>);</div><div class="line">alert(colors2);  <span class="comment">//yellow,blue,orange,green</span></div><div class="line">alert(colors3);  <span class="comment">//blue,orange</span></div><div class="line">alert(colors);  <span class="comment">//red,yellow,blue,orange,green</span></div></pre></td></tr></table></figure>
+<h5 id="splice-：返回一个从原始数组中删除的项的数组，会改变原始数组。如果没有删除项，则返回一个空数组。它根据参数的不同有以下三种用法："><a href="#splice-：返回一个从原始数组中删除的项的数组，会改变原始数组。如果没有删除项，则返回一个空数组。它根据参数的不同有以下三种用法：" class="headerlink" title="splice()：返回一个从原始数组中删除的项的数组，会改变原始数组。如果没有删除项，则返回一个空数组。它根据参数的不同有以下三种用法："></a><font color="#f40">splice()</font>：返回一个从原始数组中删除的项的数组，会改变原始数组。如果没有删除项，则返回一个空数组。它根据参数的不同有以下三种用法：</h5><h6 id="删除：-可以删除任意数量的项，需要两个参数：要删除的第一项的位置-删除的项数。"><a href="#删除：-可以删除任意数量的项，需要两个参数：要删除的第一项的位置-删除的项数。" class="headerlink" title="删除： 可以删除任意数量的项，需要两个参数：要删除的第一项的位置,删除的项数。"></a><font color="#f40">删除</font>： 可以删除任意数量的项，需要两个参数：要删除的第一项的位置,删除的项数。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>, <span class="string">'blue'</span>, <span class="string">'orange'</span>, <span class="string">'green'</span>];</div><div class="line"><span class="keyword">var</span> removed = colors.splice(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line">alert(removed);  <span class="comment">//yellow,blue</span></div><div class="line">alert(colors);  <span class="comment">//red,orange,green</span></div></pre></td></tr></table></figure>
+<h6 id="插入：-可以向指定的位置插入任意数量的项，需要三个参数：起始位置-0-要插入的项。"><a href="#插入：-可以向指定的位置插入任意数量的项，需要三个参数：起始位置-0-要插入的项。" class="headerlink" title="插入： 可以向指定的位置插入任意数量的项，需要三个参数：起始位置,0,要插入的项。"></a><font color="#f40">插入</font>： 可以向指定的位置插入任意数量的项，需要三个参数：起始位置,0,要插入的项。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>, <span class="string">'blue'</span>, <span class="string">'orange'</span>, <span class="string">'green'</span>];</div><div class="line"><span class="keyword">var</span> added = colors.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">'pink'</span>, <span class="string">'purple'</span>);</div><div class="line">alert(added);  <span class="comment">//返回一个空数组</span></div><div class="line">alert(colors);  <span class="comment">//red,pink,purple,yellow,blue,orange,green</span></div></pre></td></tr></table></figure>
+<h6 id="替换：-可以向指定位置插入任意数量的项，并且同时删除任意数量的项，需要三个参数：起始位置-要删除的项数-要插入的任意数量的项。要插入的项数不必与要删除的项数相等。"><a href="#替换：-可以向指定位置插入任意数量的项，并且同时删除任意数量的项，需要三个参数：起始位置-要删除的项数-要插入的任意数量的项。要插入的项数不必与要删除的项数相等。" class="headerlink" title="替换： 可以向指定位置插入任意数量的项，并且同时删除任意数量的项，需要三个参数：起始位置,要删除的项数,要插入的任意数量的项。要插入的项数不必与要删除的项数相等。"></a><font color="#f40">替换</font>： 可以向指定位置插入任意数量的项，并且同时删除任意数量的项，需要三个参数：起始位置,要删除的项数,要插入的任意数量的项。要插入的项数不必与要删除的项数相等。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'yellow'</span>, <span class="string">'blue'</span>, <span class="string">'orange'</span>, <span class="string">'green'</span>];</div><div class="line"><span class="keyword">var</span> replace = colors.splice(<span class="number">1</span>, <span class="number">2</span>, <span class="string">'pink'</span>, <span class="string">'purple'</span>, <span class="string">'white'</span>, <span class="string">'black'</span>);</div><div class="line">alert(replace);  <span class="comment">//yellow,blue</span></div><div class="line">alert(colors);  <span class="comment">//red,pink,purple,white,black,orange,green</span></div></pre></td></tr></table></figure>
+<p>es5中还增加一些迭代方法，因为平时工作中没怎么用过，在这里也只做个了解：</p>
+<p><font color="#f40">every()</font>：对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true。</p>
+<p><font color="#f40">filter()</font>：对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组。</p>
+<p><font color="#f40">forEach()</font>：对数组中的每一项运行给定函数，没有返回值。</p>
+<p><font color="#f40">map()</font>：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。</p>
+<p><font color="#f40">some()</font>：对数组中的每一项运行给定函数，如果该函数对任一项返回true，则返回true。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/01/array2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -591,7 +735,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -602,7 +746,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
