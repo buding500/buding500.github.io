@@ -223,7 +223,10 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 20px 0 15px;
+  margin: 20px 0 10px;
+}
+h6 {
+  margin: 6px 0;
 }
 h1 {
   font-size: 22px;
@@ -274,11 +277,13 @@ h6 {
   }
 }
 p {
-  margin: 0 0 25px 0;
+  padding: 10px 0;
+  margin: 0;
 }
 a {
   color: #555;
   text-decoration: none;
+  padding-bottom: 2px;
   border-bottom: 1px solid #999;
   word-wrap: break-word;
 }
@@ -304,7 +309,7 @@ hr {
   background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
 }
 blockquote {
-  padding: 0 15px;
+  padding: 0 10px;
   color: #666;
   border-left: 4px solid #ddd;
 }
@@ -473,7 +478,7 @@ body {
 pre,
 .highlight {
   overflow: auto;
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 0;
   font-size: 13px;
   color: #4d4d4c;
@@ -1127,7 +1132,7 @@ pre .javascript .function {
 }
 @media (max-width: 767px) {
   .posts-expand {
-    margin: 0 20px;
+    margin: 0 10px;
   }
   .post-body pre {
     padding: 10px;
@@ -1148,13 +1153,6 @@ pre .javascript .function {
   .posts-expand .post-body {
     text-align: justify;
   }
-}
-.posts-expand .post-body h2,
-.posts-expand .post-body h3,
-.posts-expand .post-body h4,
-.posts-expand .post-body h5,
-.posts-expand .post-body h6 {
-  padding-top: 10px;
 }
 .posts-expand .post-body h2 .header-anchor,
 .posts-expand .post-body h3 .header-anchor,
@@ -1678,7 +1676,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff20a3;
+  background: #348e62;
 }
 .links-of-blogroll {
   font-size: 13px;
