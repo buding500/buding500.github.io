@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="有个后台项目需要使用两栏自适应布局，用margin负值，同时自己也回顾一下：  .f40{color:#f40;}   两栏布局123.container&amp;#123;width:100%;&amp;#125;.left&amp;#123;width:200px; float:left; height:500px; background:#ddd; margin-right:-200px;&amp;#125;.main&amp;#">
+<meta name="description" content="公司做移动端项目，老大选择用vue来进行，于是开始了Vue学习之旅。 创建项目直接选用vue脚手架vue-cli来进行。 环境配置node 官方下载安装即可，地址：http://nodejs.cn/1查看版本: node -v npm node安装会自动安装npm1查看版本: npm -v npm由于是国外服务器，在国内访问很慢，强大的淘宝团队折腾出了cnpm，称为淘宝镜像，官方网址：http:/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="margin负值进行两栏或三栏自适应布局">
-<meta property="og:url" content="http://yoursite.com/2017/08/10/margin/index.html">
+<meta property="og:title" content="创建一个vue项目(vue+webpack) - Vue学习笔记一">
+<meta property="og:url" content="http://yoursite.com/2017/08/30/vue1/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
-<meta property="og:description" content="有个后台项目需要使用两栏自适应布局，用margin负值，同时自己也回顾一下：  .f40{color:#f40;}   两栏布局123.container&amp;#123;width:100%;&amp;#125;.left&amp;#123;width:200px; float:left; height:500px; background:#ddd; margin-right:-200px;&amp;#125;.main&amp;#">
-<meta property="og:updated_time" content="2017-08-10T14:23:05.955Z">
+<meta property="og:description" content="公司做移动端项目，老大选择用vue来进行，于是开始了Vue学习之旅。 创建项目直接选用vue脚手架vue-cli来进行。 环境配置node 官方下载安装即可，地址：http://nodejs.cn/1查看版本: node -v npm node安装会自动安装npm1查看版本: npm -v npm由于是国外服务器，在国内访问很慢，强大的淘宝团队折腾出了cnpm，称为淘宝镜像，官方网址：http:/">
+<meta property="og:updated_time" content="2017-08-30T15:11:25.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="margin负值进行两栏或三栏自适应布局">
-<meta name="twitter:description" content="有个后台项目需要使用两栏自适应布局，用margin负值，同时自己也回顾一下：  .f40{color:#f40;}   两栏布局123.container&amp;#123;width:100%;&amp;#125;.left&amp;#123;width:200px; float:left; height:500px; background:#ddd; margin-right:-200px;&amp;#125;.main&amp;#">
+<meta name="twitter:title" content="创建一个vue项目(vue+webpack) - Vue学习笔记一">
+<meta name="twitter:description" content="公司做移动端项目，老大选择用vue来进行，于是开始了Vue学习之旅。 创建项目直接选用vue脚手架vue-cli来进行。 环境配置node 官方下载安装即可，地址：http://nodejs.cn/1查看版本: node -v npm node安装会自动安装npm1查看版本: npm -v npm由于是国外服务器，在国内访问很慢，强大的淘宝团队折腾出了cnpm，称为淘宝镜像，官方网址：http:/">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/10/margin/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/30/vue1/"/>
 
 
 
 
 
-  <title>margin负值进行两栏或三栏自适应布局 | Gezi's Notes</title>
+  <title>创建一个vue项目(vue+webpack) - Vue学习笔记一 | Gezi's Notes</title>
   
 
 
@@ -255,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/margin/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/30/vue1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="格子">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">margin负值进行两栏或三栏自适应布局</h1>
+          <h1 class="post-title" itemprop="name headline">创建一个vue项目(vue+webpack) - Vue学习笔记一</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T21:11:10+08:00">
-                2017-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T22:11:29+08:00">
+                2017-08-30
               </time>
             
 
@@ -307,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -341,29 +341,19 @@
       
 
       
-        <p>有个后台项目需要使用两栏自适应布局，用margin负值，同时自己也回顾一下：</p>
-<style>
-.f40{color:#f40;}
-</style>
-
-<h5 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a><span class="f40">两栏布局</span></h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">float</span>:left; <span class="attribute">height</span>:<span class="number">500px</span>; <span class="attribute">background</span>:<span class="number">#ddd</span>; <span class="attribute">margin-right</span>:-<span class="number">200px</span>;&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;<span class="attribute">margin-left</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">500px</span>;&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>原理：</p>
-<ul>
-<li>left元素float之后，会自动脱离文档，main元素则会跑到left右边，</li>
-<li>left元素margin-right负值之后，main容器的起始位置跟left容器一样了，这时left元素在main元素之的上层。</li>
-<li>给main元素margin-left值等于left的宽度值，left元素的负margin和main元素的正margin相抵消，main元素的起始位置在left元素的结束位置了，即实现了自适应。</li>
-</ul>
-<h5 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a><span class="f40">三栏布局</span></h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">float</span>:left; <span class="attribute">height</span>:<span class="number">500px</span>;&#125;</div><div class="line"><span class="selector-class">.left</span>, <span class="selector-class">.right</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">float</span>:left; <span class="attribute">height</span>:<span class="number">500px</span>; <span class="attribute">background</span>:<span class="number">#f00</span>;&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-class">.right</span>&#123; <span class="attribute">margin-left</span>:-<span class="number">200px</span>;&#125;</div><div class="line"><span class="selector-class">.main-content</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">500px</span>; <span class="attribute">background</span>:<span class="number">#ccc</span>;&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main-content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>原理：</p>
-<ul>
-<li>三者均使用float让自己脱离文档流。这个地方注意main元素写在最前面，给宽度100%;</li>
-<li>left元素使用margin负值将自己放到main元素上方的最左侧位置；</li>
-<li>right元素使用margin负值将自己放到main元素上方的右侧位置；</li>
-<li>这个时候的main元素实际是全屏宽度，位于left元素和right元素下方。给main元素一个子元素，margin左右值给left元素和right元素的宽度，那么内容区域就是main-content，显示在了最中间，且宽度自适应；</li>
-<li>这个地方的margin负值仅仅用来让left和right定位到main上方的位置，并没有像两栏布局一样是一个相抵消的过程。</li>
-</ul>
+        <p>公司做移动端项目，老大选择用vue来进行，于是开始了Vue学习之旅。</p>
+<p>创建项目直接选用vue脚手架vue-cli来进行。</p>
+<h5 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h5><h6 id="node-官方下载安装即可，地址：http-nodejs-cn"><a href="#node-官方下载安装即可，地址：http-nodejs-cn" class="headerlink" title="node 官方下载安装即可，地址：http://nodejs.cn/"></a>node 官方下载安装即可，地址：<a href="http://nodejs.cn/" target="_blank" rel="external">http://nodejs.cn/</a></h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">查看版本: node -v</div></pre></td></tr></table></figure>
+<h6 id="npm-node安装会自动安装npm"><a href="#npm-node安装会自动安装npm" class="headerlink" title="npm node安装会自动安装npm"></a>npm node安装会自动安装npm</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">查看版本: npm -v</div></pre></td></tr></table></figure>
+<p>npm由于是国外服务器，在国内访问很慢，强大的淘宝团队折腾出了cnpm，称为淘宝镜像，官方网址：<a href="http://npm.taobao.org" target="_blank" rel="external">http://npm.taobao.org</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">安装cnpm: npm install cnpm -g --registry=https:<span class="comment">//registry.npm.taobao.org</span></div><div class="line">查看版本:  cnpm -v</div></pre></td></tr></table></figure></p>
+<p>接下来就可以使用cnpm来代替npm了。</p>
+<h6 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install vue-cli -g</div></pre></td></tr></table></figure>
+<h6 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install webpack -g</div></pre></td></tr></table></figure>
+<p>接下来就可以开始建项目了，打开你要建项目的文件夹,比如我建在E盘的vue文件夹下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">e: <span class="comment">//进入E盘</span></div><div class="line">cd vue <span class="comment">//打开vue文件夹</span></div><div class="line">vue init webpack xzwap <span class="comment">//创建项目</span></div></pre></td></tr></table></figure></p>
+<p>接下来就是一路enter了，这些配置的说明如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">? Project name xzwap   <span class="comment">//项目名是xzwap</span></div><div class="line">? Project description A Vue.js project  <span class="comment">//文档描述，会在README.md文件上生成输入的内容，默认 A Vue.js project</span></div><div class="line">? Author _**** <span class="xml"><span class="tag">&lt;<span class="name">****@**.com</span>&gt;</span>  //作者，如果有git，就是读取git的User信息</span></div><div class="line">? Vue build standalone  //有两个选项，第一个选项写着recommended for most users果断选了（至于干什么用到并不知道）</div><div class="line">? Use ESLint to lint your code? Yes  //是否使用ESlint 默认是</div><div class="line">? Pick an ESLint preset Standard  //选这个一个ESlint类型</div><div class="line">? Setup unit tests with Karma + Mocha? Yes  //使用单元测试工具karma和mocha 默认是</div><div class="line">? Setup e2e tests with Nightwatch? Yes  //使用e2e测试框架 NightWatch 默认是</div></pre></td></tr></table></figure></p>
+<p>然后安装依赖：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd xzwap <span class="comment">//进入xzwap文件夹</span></div><div class="line">cnpm install <span class="comment">//安装依赖</span></div></pre></td></tr></table></figure></p>
+<p>运行项目：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm run dev</div></pre></td></tr></table></figure></p>
+<p>项目运行起来了，一个vue项目创建成功了！</p>
 
       
     </div>
@@ -400,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/09/mouse/" rel="next" title="mouse的那些事">
-                <i class="fa fa-chevron-left"></i> mouse的那些事
+              <a href="/2017/08/10/margin/" rel="next" title="margin负值进行两栏或三栏自适应布局">
+                <i class="fa fa-chevron-left"></i> margin负值进行两栏或三栏自适应布局
               </a>
             
           </div>
@@ -409,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/30/vue1/" rel="prev" title="创建一个vue项目(vue+webpack) - Vue学习笔记一">
-                创建一个vue项目(vue+webpack) - Vue学习笔记一 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -532,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#两栏布局"><span class="nav-number">1.</span> <span class="nav-text">两栏布局</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三栏布局"><span class="nav-number">2.</span> <span class="nav-text">三栏布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#环境配置"><span class="nav-number">1.</span> <span class="nav-text">环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#node-官方下载安装即可，地址：http-nodejs-cn"><span class="nav-number">1.1.</span> <span class="nav-text">node 官方下载安装即可，地址：http://nodejs.cn/</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#npm-node安装会自动安装npm"><span class="nav-number">1.2.</span> <span class="nav-text">npm node安装会自动安装npm</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#vue-cli"><span class="nav-number">1.3.</span> <span class="nav-text">vue-cli</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#webpack"><span class="nav-number">1.4.</span> <span class="nav-text">webpack</span></a></li></ol></li></ol></div>
             
 
           </div>
