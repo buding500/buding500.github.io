@@ -256,6 +256,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/01/vue3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/01/vue3/" itemprop="url">router-link动态传参的两种方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T22:14:58+08:00">
+                2017-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>项目过程中，我们少不了列表页，列表页进入到详情页，就得传个id参数过去告诉页面是哪一个的详情页面。那么在页面中应该怎么来做呢？</p>
+<p>翻看了一些资料，理了下，动态传参的方式有两种：</p>
+<h4 id="使用path-query的方式"><a href="#使用path-query的方式" class="headerlink" title="使用path+query的方式"></a>使用path+query的方式</h4><p>在home.vue里写列表并加点数据：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in users"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path:'/user', query:&#123;id:item.id&#125;&#125;"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">  export default&#123;</div><div class="line">      name:'home',</div><div class="line">      data () &#123;</div><div class="line">          return &#123;</div><div class="line">              users:[</div><div class="line">                &#123;id:'1', name:'张三'&#125;,</div><div class="line">                &#123;id:'2', name:'李四'&#125;,</div><div class="line">                &#123;id:'3', name:'王五'&#125;,</div><div class="line">                &#123;id:'4', name:'六六'&#125;</div><div class="line">              ]</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后昨天我们在page里建了一个user.vue，今天正好拿来用；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>个人中心 &#123;&#123;$route.query.id&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这里使用$route.query.id去取得参数的值，注意是$route而不是$router。</p>
+<p>再接着我们来配置路由，以path+query的方式传参，路由跟之前的配置方式一样，没有什么变化；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></div><div class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">'@/page/home'</span></div><div class="line"><span class="keyword">import</span> user <span class="keyword">from</span> <span class="string">'@/page/user'</span></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  <span class="attr">routes</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">      <span class="attr">redirect</span>: <span class="string">'/home'</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/home'</span>,</div><div class="line">      <span class="attr">component</span>: home</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/user'</span>, <span class="comment">//看这里，基本配置</span></div><div class="line">      component: user</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>好了，一个以path+query方式动态传参就好了，试试看点点home页上的列表，是不是跳转到user页面了。注意地址栏变化，以这种方式传参，地址栏是 “/user?id=1”这种形式。</p>
+<h4 id="使用name-yparams的方式"><a href="#使用name-yparams的方式" class="headerlink" title="使用name+yparams的方式"></a>使用name+yparams的方式</h4><p>先改home.vue里的代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">将 <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path:'/user', query:&#123;id:item.id&#125;&#125;"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line"></div><div class="line">改成</div><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name:'user', params:&#123;id:item.id&#125;&#125;"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>接着来修改user.vue里的代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">将 <span class="tag">&lt;<span class="name">div</span>&gt;</span>个人中心 &#123;&#123;$route.query.id&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span>】</div><div class="line"></div><div class="line">改成</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>个人中心 &#123;&#123;$route.params.id&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>接下来在路由里添加动态路由：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></div><div class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">'@/page/home'</span></div><div class="line"><span class="keyword">import</span> user <span class="keyword">from</span> <span class="string">'@/page/user'</span></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  <span class="attr">routes</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">      <span class="attr">redirect</span>: <span class="string">'/home'</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/home'</span>,</div><div class="line">      <span class="attr">component</span>: home</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">name</span>: <span class="string">'user'</span>, <span class="comment">//看这里，添加name对应列表里的name</span></div><div class="line">      path: <span class="string">'/user/:id'</span>, <span class="comment">//设置参数字段</span></div><div class="line">      component: user</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>好了，我们进首页去点点看，是不是也把参数传过来了，不过这里的地址栏是”/user/1”  这种形式的。</p>
+<p>两种动态传参以及对应的路由配置都是一一对应的，不可以混来着写。path对应的就是query传参数方式，也就是常规的地址栏传参；name对应的是params传参数方式，这种方式需要进行动态路由的配置。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/30/vue2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -275,7 +422,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/30/vue2/" itemprop="url">vue-router配置 - Vue学习笔记二</a></h1>
+                <a class="post-title-link" href="/2017/08/30/vue2/" itemprop="url">vue-router基本配置</a></h1>
         
 
         <div class="post-meta">
@@ -418,7 +565,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/30/vue1/" itemprop="url">创建一个vue项目(vue+webpack) - Vue学习笔记一</a></h1>
+                <a class="post-title-link" href="/2017/08/30/vue1/" itemprop="url">使用vue-cli创建一个vue项目</a></h1>
         
 
         <div class="post-meta">
@@ -1885,314 +2032,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/05/regexp3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/05/regexp3/" itemprop="url">正则表达式的基础用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T21:28:23+08:00">
-                2017-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>近期目标是学会自己写正则表达式，于是乎，开始看《正则表达式必知必会》，基础的看得差不多了，觉得也应该多多少少记录一些下来。</p>
-<h5 id="正则表达式的用途"><a href="#正则表达式的用途" class="headerlink" title="正则表达式的用途:"></a>正则表达式的用途:</h5><ol>
-<li>查找特定的信息</li>
-<li>查找并替换特定的信息</li>
-</ol>
-<p>常用的无字符分类列表：</p>
-<style>
-table th:first-of-type {
-    width: 100px;
-}
-</style>
-
-<h5 id="基本元字符："><a href="#基本元字符：" class="headerlink" title="基本元字符："></a>基本元字符：</h5><table>
-<thead>
-<tr>
-<th>字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.</td>
-<td>匹配任意单个字符</td>
-</tr>
-<tr>
-<td>&#124;</td>
-<td>匹配或操作符</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>匹配字符集合中的一个字符</td>
-</tr>
-<tr>
-<td>[^]</td>
-<td>对字符集合求非</td>
-</tr>
-<tr>
-<td>-</td>
-<td>定义一个区间，如[a-z],放在字符集首位或末尾则匹配本身</td>
-</tr>
-<tr>
-<td>\</td>
-<td>对它后面的字符进行转义</td>
-</tr>
-</tbody>
-</table>
-<h4 id="表示次数的元字符："><a href="#表示次数的元字符：" class="headerlink" title="表示次数的元字符："></a>表示次数的元字符：</h4><table>
-<thead>
-<tr>
-<th>字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+</td>
-<td>匹配前面的子表达式1次或多次，至少匹配1次</td>
-</tr>
-<tr>
-<td>*</td>
-<td>匹配前面的子表达式0次或多次</td>
-</tr>
-<tr>
-<td>？</td>
-<td>匹配前面的子表达式0次或1次</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>n为非负整数，匹配n次</td>
-</tr>
-<tr>
-<td>{n,}</td>
-<td>n为非负整数，至少匹配n次</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td>n为非负整数，匹配至少n次，最多m次</td>
-</tr>
-</tbody>
-</table>
-<h4 id="表示位置的元字符："><a href="#表示位置的元字符：" class="headerlink" title="表示位置的元字符："></a>表示位置的元字符：</h4><table>
-<thead>
-<tr>
-<th>字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^</td>
-<td>匹配输入字符串的开始位置</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配输入字符串的结束位置</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>匹配一个单词边界，也就是指单词和空格间的位置</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>匹配非单词边界</td>
-</tr>
-</tbody>
-</table>
-<h4 id="空白元字符"><a href="#空白元字符" class="headerlink" title="空白元字符"></a>空白元字符</h4><table>
-<thead>
-<tr>
-<th>字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[\b]</td>
-<td>回退（并删除）一个字符(Backspace键)</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>换页符</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>换行符</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>回车符</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>制表符(tab键)</td>
-</tr>
-<tr>
-<td>\v</td>
-<td>垂直制表符</td>
-</tr>
-</tbody>
-</table>
-<h4 id="特殊元字符"><a href="#特殊元字符" class="headerlink" title="特殊元字符"></a>特殊元字符</h4><table>
-<thead>
-<tr>
-<th>字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\d</td>
-<td>匹配一个数字字符。等价于 [0-9]</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配一个非数字字符。等价于 [^0-9]</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配任何非空白字符。等价于 [^ \f\n\r\t\v]</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配包括下划线的任何单词字符。等价于 [A-Za-z0-9_]</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>匹配任何非单词字符。等价于 [^A-Za-z0-9_]</td>
-</tr>
-</tbody>
-</table>
-<p><br><br>下一篇： <a href="https://buding500.github.io/2017/07/07/regexp4/" target="_blank" rel="external">(pattern) | (?:pattern) | (?=pattert) | (?!pattern) | (?&lt;=pattert) | (?&lt;!pattern)的用法</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2242,7 +2081,7 @@ table th:first-of-type {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
