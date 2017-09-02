@@ -256,6 +256,314 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/keyboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/11/keyboard/" itemprop="url">jquery键盘事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T22:03:24+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在项目过程中，经常遇到一些表单操作，涉及到表单，自然逃不掉键盘事件。比如：在输入的时候隐藏验证错误提示，在最后一个输入框里输入回车的时候提交表单等等。因为现在项目用的是jquery，想说来整理一下这几个键盘事件。</p>
+<p>jquery键盘事件有以下几个：</p>
+<ul>
+<li>keydown()：当键盘按下时触发；</li>
+<li>keypress()：当键盘按下时触发；</li>
+<li>keyup()：当按键松开时触发，发生在当前获得焦点的元素上</li>
+</ul>
+<p>来看个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"keyBoard"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>keydown：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"keydown"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>keypress：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"keypress"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>keyup：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"keyup"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> i=j=k=<span class="number">0</span>;</div><div class="line">      $(<span class="string">'#keyBoard'</span>).on(<span class="string">'keydown'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        i++;</div><div class="line">        $(<span class="string">'#keydown'</span>).text(i);</div><div class="line">      &#125;);</div><div class="line">      $(<span class="string">'#keyBoard'</span>).on(<span class="string">'keypress'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        j++;</div><div class="line">        $(<span class="string">'#keypress'</span>).text(j);</div><div class="line">      &#125;);</div><div class="line">      $(<span class="string">'#keyBoard'</span>).on(<span class="string">'keyup'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        k++;</div><div class="line">        $(<span class="string">'#keyup'</span>).text(k);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>结果是什么呢：</p>
+<ul>
+<li>当我们一个字符一个字符输入时，三者表现一致；</li>
+<li>当我们一直按着某个字符键，keydown和keypress一直在发生变化，并且次数一致；</li>
+<li>这个时候输入框满了，我们删除一些字符。然后：区别出来啦！！！这个时候keydow发生了变化，而keypress没有变化，也就是backspace键keypress识别不了；</li>
+<li>猜测keypress不能识别功能键，然后按下ctrl、shift、tab、delete、CapsLock等功能键来试一试，果然keypress没有反应，而keydown数字一直在变化；</li>
+<li>然后我们来测试一下特殊字符，比如?&lt;&gt;{}[]’’””:;等，发现keypress和keydown表现一致；</li>
+<li>最后我们来试一下中中文，这时区别又出来了，keypress不能识别中文，不管是中文汉字还是中文字符（比如：？《》｛｝【】），而keydown只要按下键就会识别，keyup只要松开键也会有识别。总的来说：keypress没有办法识别双字节字符！</li>
+</ul>
+<h5 id="最后来总结一下："><a href="#最后来总结一下：" class="headerlink" title="最后来总结一下："></a>最后来总结一下：</h5><ol>
+<li>keydown和keypress在没有输入特殊字符的情况下表现一致；</li>
+<li>keyup只在松开键的时候触发；</li>
+<li>keypress不能识别功能键和双字节字符。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/07/regexp4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/07/regexp4/" itemprop="url">(pattern) &#124; (?:pattern) &#124; (?=pattert) &#124; (?!pattern) &#124; (?&lt;=pattert) &#124; (?&lt;!pattern)的用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T23:01:36+08:00">
+                2017-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="pattern-：子表达式，也叫分组，匹配pattern并获取这一匹配。"><a href="#pattern-：子表达式，也叫分组，匹配pattern并获取这一匹配。" class="headerlink" title="(pattern)：子表达式，也叫分组，匹配pattern并获取这一匹配。"></a><font color="#f00">(pattern)</font>：子表达式，也叫分组，匹配pattern并获取这一匹配。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'Hello (11|22|33)'</span>,<span class="string">'g'</span>);</div><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello 11'</span>;</div><div class="line">alert(str.match(reg)); <span class="comment">//Hello 11</span></div></pre></td></tr></table></figure>
+<p>上面例子中(11|22|33)就是一个子表达式，子表达式在引用过程中有两种写法：\1 和 $1。</p>
+<ul>
+<li><p><font color="#f00">\1 </font>是在正则表达式本身中引用分组1的内容，也称回溯引用。比如我们要在一段html中匹配所有的标题，即&lt;h1&gt;&lt;h1&gt;…&lt;h6&gt;&lt;/h6&gt;：<br>正则：&lt;(h[1-6])&gt;.*?&lt;\/\1&gt;，(h[1-6])匹配到第一个h标题，后面\1再引用分组1这个匹配内容，即h1对应h1,h6对应h6，不会出现h1对h6的情况。如果想用分组2则用\2,依次类推。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> html = <span class="string">'&lt;h1&gt;大标题&lt;/h1&gt;&lt;p&gt;hello&lt;/p&gt;&lt;h6&gt;小标题&lt;/h6&gt;'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;(h[1-6])&gt;.*?&lt;\\\/\\1&gt;'</span>,<span class="string">'g'</span>);</div><div class="line"><span class="keyword">var</span> res = html.match(reg);</div><div class="line">alert(res); <span class="comment">//&lt;h1&gt;大标题&lt;/h1&gt;,&lt;h6&gt;小标题&lt;/h6&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><font color="#f00">$1</font> 是在替换中调用分组的内容。比如我们需要把html里的邮箱都加上链接，匹配name@email.com然后用<a href="mailto:name@email.com" target="_blank" rel="external">name@email.com</a>来替换：<br>正则：(\w+(.?)\w<em>@(\w+)(.?)\w+(.?)\w</em>);替换：<a href="mailto:$1" target="_blank" rel="external">$1</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'aa.ss@dd.com.cn'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(\\w+(\\.?)\\w*@(\\w+)(\\.?)\\w+(\\.?)\\w*)'</span>);</div><div class="line"><span class="keyword">var</span> res = str.replace(reg,<span class="string">'&lt;a href="mailto:$1"&gt;$1&lt;/a&gt;'</span>);</div><div class="line">alert(res); <span class="comment">//&lt;a href="mailto:aa.ss@dd.com.cn"&gt;aa.ss@dd.com.cn&lt;/a&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这个地方有个坑，就是new RegExp()的时候，采用字符串行式的方式 参数，一定要给里面的斜杠进行转义(比如\w写成\&#92;w；/\写成///&#92;)，否则会匹配不到。为了以防掉坑，以后还是直接用/pattern/的方式来定义好了。</p>
+<h4 id="pattern-：非捕获组，它们只分组而不对分组进行捕获。"><a href="#pattern-：非捕获组，它们只分组而不对分组进行捕获。" class="headerlink" title="(?:pattern)：非捕获组，它们只分组而不对分组进行捕获。"></a><font color="#f00">(?:pattern)</font>：非捕获组，它们只分组而不对分组进行捕获。</h4><p>很疑惑捕获组和非捕获的具体区别，于是乎开始查各种资料，似乎明白了点什么：</p>
+<font color="#0f88eb">凡是以问号开头的都是非捕获组。它们在匹配过程中，不对分组进行存值，也就是说匹配结果不能继续使用，而捕获分组则可以通过\1或者$1这样的方式来使用匹配到并捕获的分组结果。这样来讲，不捕获组进行匹配的效率要高。</font>
+
+<p>比如我们要在一篇文章中查找”happy”和”happiness”两个单词，正则表达式可以写成/happy|happiness/，也可写成/happ(y|iness)/，但是去缓存子表达式(y|iness)没有意义，这个时候就可以用/happ(?:y|iness)/来进行非捕获性匹配，简洁又不占用资源。</p>
+<h4 id="pattern-：向前查找，匹配后面是pattern的数据，但pattern不在结果中返回。pattern左为前，右为后。"><a href="#pattern-：向前查找，匹配后面是pattern的数据，但pattern不在结果中返回。pattern左为前，右为后。" class="headerlink" title="(?=pattern)：向前查找，匹配后面是pattern的数据，但pattern不在结果中返回。pattern左为前，右为后。"></a><font color="#f00">(?=pattern)</font>：向前查找，匹配后面是pattern的数据，但pattern不在结果中返回。pattern左为前，右为后。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> url = <span class="string">'http://www.baidu.com&amp;&amp;https://www.baidu.com'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/(https?)(?=:)/g</span>;</div><div class="line">alert(url.match(reg)); <span class="comment">//http,https</span></div><div class="line"></div><div class="line">找到 : 前面的数据并返回，但是不返回 : 本身</div></pre></td></tr></table></figure>
+<h4 id="pattern-：与-pattern-相反，匹配后面不是pattern的数据，pattern不在结果中返回。"><a href="#pattern-：与-pattern-相反，匹配后面不是pattern的数据，pattern不在结果中返回。" class="headerlink" title="(?!pattern)：与(?=pattern)相反，匹配后面不是pattern的数据，pattern不在结果中返回。"></a><font color="#f00">(?!pattern)</font>：与(?=pattern)相反，匹配后面不是pattern的数据，pattern不在结果中返回。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'apple:banana=pear:grape'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\w+\b)(?!:)/g</span>;</div><div class="line">alert(str.match(reg)); <span class="comment">//banana,grape</span></div></pre></td></tr></table></figure>
+<h4 id="lt-pattern-：向后查找，匹配前面是pattern的数据，pattern不在结果中返回。"><a href="#lt-pattern-：向后查找，匹配前面是pattern的数据，pattern不在结果中返回。" class="headerlink" title="(?&lt;=pattern)：向后查找，匹配前面是pattern的数据，pattern不在结果中返回。"></a><font color="#f00">(?&lt;=pattern)</font>：向后查找，匹配前面是pattern的数据，pattern不在结果中返回。</h4><h4 id="lt-pattern-：与-lt-pattern-相反，匹配前面不是pattern的数据，pattern不在结果中返回。"><a href="#lt-pattern-：与-lt-pattern-相反，匹配前面不是pattern的数据，pattern不在结果中返回。" class="headerlink" title="(?&lt;!pattern)：与(?&lt;=pattern)相反，匹配前面不是pattern的数据，pattern不在结果中返回。"></a><font color="#f00">(?&lt;!pattern)</font>：与(?&lt;=pattern)相反，匹配前面不是pattern的数据，pattern不在结果中返回。</h4><p>向后查找(?&lt;=pattent)和(?&lt;!pattern)是不支持javascript，所以我也没办法写例子了。</p>
+<p>前后查找也有其它的叫法，叫做环视或者断言。具体可以参考这篇文章 <a href="http://www.zjmainstay.cn/deep-regexp" target="_blank" rel="external">深入理解正则表达式高级教程</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/05/regexp3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1370,7 +1678,7 @@ table th:first-of-type {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
