@@ -256,6 +256,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/04/vue6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/04/vue6/" itemprop="url">vue写一个简单的tab切换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T21:05:03+08:00">
+                2017-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天写页面过程中遇到一个tab切换，翻查了下资料，实现起来还算比较简单，就是根据某一条件进行class的切换就可以了。下面来看代码。</p>
+<p>需求，点击不同的类目切换到不同的类目列表，简单写一下html:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"cat-list"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in categories"</span> @<span class="attr">click</span>=<span class="string">"currentCat(item.id)"</span> <span class="attr">:class</span>=<span class="string">"&#123;current: item.id == currentId&#125;"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后数据跟上：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">categories</span>:[</div><div class="line">          &#123;<span class="attr">id</span>:<span class="string">'1'</span>,<span class="attr">name</span>:<span class="string">'男装'</span>&#125;,</div><div class="line">          &#123;<span class="attr">id</span>:<span class="string">'2'</span>,<span class="attr">name</span>:<span class="string">'女装'</span>&#125;,</div><div class="line">          &#123;<span class="attr">id</span>:<span class="string">'3'</span>,<span class="attr">name</span>:<span class="string">'箱包'</span>&#125;,</div><div class="line">          &#123;<span class="attr">id</span>:<span class="string">'4'</span>,<span class="attr">name</span>:<span class="string">'配饰'</span>&#125;</div><div class="line">        ],</div><div class="line">        <span class="attr">currentId</span>:<span class="string">''</span></div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"><span class="attr">methods</span>:&#123;</div><div class="line">  <span class="attr">currentCat</span>: <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.currentId = id;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>为了不太丑，加上点css吧：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.cat-list&#123;width:100%; line-height:30px; list-style:none;&#125;</div><div class="line">.cat-list li&#123;width:200px;float:left; color:#000;&#125;</div><div class="line">.cat-list li.current&#123;color:#f00; font-weight:bold;&#125;</div></pre></td></tr></table></figure></p>
+<p>大功告成，确保你的路由已经配置好了，现在点点看，已经可以实现切换效果了。<br>来说一下实现的思路：定义一个变量记录当前id，即代码中的currentId，然后点击的时候将点击的类别id赋值给currentId，当currentId和类目id相等的时候加上current的样式来标记当前的类目就可以了。</p>
+<p>在这里要特别注意一下v-bind:class的写法。 :class的写法主要有以下几种方式：</p>
+<ul>
+<li><p>绑定对象：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"&#123; red: isRed &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"&#123;current: type == 'A'&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>绑定多个样式，用数组来绑定：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, classB]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>绑定样式也绑定对象：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, &#123;actived: type == 'B'&#125;]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/02/vue5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -487,7 +637,7 @@
             <p>移动端项目经常会有banner大图的切换，我们使用的是swiper插件，需要引入插件的样式和js，那么引入外部的css和js有哪几种方式呢？</p>
 <p>准备工作：在src下新建一个style和plugins分别放样式和插件的js。 然后为了方便看效果，我们在home.vue里写一段swiper的html的结构：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <h4 id="引入css"><a href="#引入css" class="headerlink" title="引入css"></a>引入css</h4><p>一、 使用import的方式引入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'../style/swiper.min.css'</span></div></pre></td></tr></table></figure></p>
-<p>二、 使用style的方式引入<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">方式一： <span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span> <span class="attr">src</span>=<span class="string">"../style/swiper.min.css"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">方式二：</div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></div><div class="line">  @import '../style/swiper.min.css'</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>二、 使用style的方式引入<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">方式一： <span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span> <span class="attr">src</span>=<span class="string">"../style/swiper.min.css"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">方式二：</div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="css"></span></div><div class="line">  @<span class="keyword">import</span> <span class="string">'../style/swiper.min.css'</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>三、在index.html里用&lt;link&gt;的方式引入，这个比较适用于全局使用的css文件。</p>
 <h4 id="引入js"><a href="#引入js" class="headerlink" title="引入js"></a>引入js</h4><p>引入js前我们先在home.vue的import default里加一段代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mounted ()&#123;</div><div class="line">    <span class="keyword">new</span> Swiper(<span class="string">'.swiper-container'</span>, &#123;</div><div class="line">        <span class="attr">autoplay</span>: <span class="number">3000</span>,</div><div class="line">        <span class="attr">loop</span>: <span class="literal">true</span></div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>一、以import的方式引入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'../plugins/swiper.min.js'</span></div></pre></td></tr></table></figure></p>
@@ -1274,146 +1424,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/math/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/29/math/" itemprop="url">数字相关Math对象和Number对象常用方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:52:12+08:00">
-                2017-07-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法：</p>
-<p>Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。</p>
-<h5 id="常用的Math对象方法："><a href="#常用的Math对象方法：" class="headerlink" title="常用的Math对象方法："></a>常用的Math对象方法：</h5><h6 id="abs-x-：返回x绝对值"><a href="#abs-x-：返回x绝对值" class="headerlink" title="abs(x)：返回x绝对值"></a>abs(x)：返回x绝对值</h6><h6 id="min-x-y-：返回x、y中最小值"><a href="#min-x-y-：返回x、y中最小值" class="headerlink" title="min(x,y)：返回x、y中最小值"></a>min(x,y)：返回x、y中最小值</h6><h6 id="max-x-y-：返回x、y中最大值"><a href="#max-x-y-：返回x、y中最大值" class="headerlink" title="max(x,y)：返回x、y中最大值"></a>max(x,y)：返回x、y中最大值</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.abs(<span class="number">-20.022</span>);<span class="comment">//20.022</span></div><div class="line"><span class="built_in">Math</span>.min(<span class="number">10</span>,<span class="number">20</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">30</span>);<span class="comment">//30</span></div></pre></td></tr></table></figure>
-<h6 id="ceil-x-：对x进行向上舍入成整数"><a href="#ceil-x-：对x进行向上舍入成整数" class="headerlink" title="ceil(x)：对x进行向上舍入成整数"></a>ceil(x)：对x进行向上舍入成整数</h6><h6 id="floor-x-：对x进行向下舍入成整数"><a href="#floor-x-：对x进行向下舍入成整数" class="headerlink" title="floor(x)：对x进行向下舍入成整数"></a>floor(x)：对x进行向下舍入成整数</h6><h6 id="round-x-：对x进行四舍五入成整数"><a href="#round-x-：对x进行四舍五入成整数" class="headerlink" title="round(x)：对x进行四舍五入成整数"></a>round(x)：对x进行四舍五入成整数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">10.12</span>);<span class="comment">//11</span></div><div class="line"><span class="built_in">Math</span>.floor(<span class="number">10.82</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.12</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.82</span>);<span class="comment">//11</span></div></pre></td></tr></table></figure>
-<h6 id="random-：返回-0-1-之间的随机数"><a href="#random-：返回-0-1-之间的随机数" class="headerlink" title="random()：返回 0 ~ 1 之间的随机数"></a>random()：返回 0 ~ 1 之间的随机数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*<span class="number">100</span>+<span class="number">1</span>);<span class="comment">//1-100随机整数</span></div></pre></td></tr></table></figure>
-<h5 id="Number对象有构建函数，它最有用的方法是toFixed"><a href="#Number对象有构建函数，它最有用的方法是toFixed" class="headerlink" title="Number对象有构建函数，它最有用的方法是toFixed():"></a>Number对象有构建函数，它最有用的方法是toFixed():</h5><h6 id="toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><a href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20" class="headerlink" title="toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"></a>toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n= <span class="number">12.34</span>;</div><div class="line">n.toFixed(<span class="number">0</span>);<span class="comment">//"12"</span></div><div class="line">n.toFixed(<span class="number">1</span>);<span class="comment">//"12.3"</span></div><div class="line">n.toFixed(<span class="number">5</span>);<span class="comment">//"12.34000"</span></div></pre></td></tr></table></figure>
-<p>foFixed()用来截取小数位非常好用，不足的可以补0。<br>注意几点：</p>
-<h6 id="1、n必须是Number类型"><a href="#1、n必须是Number类型" class="headerlink" title="1、n必须是Number类型"></a>1、n必须是Number类型</h6><h6 id="2、返回的是string类型"><a href="#2、返回的是string类型" class="headerlink" title="2、返回的是string类型"></a>2、返回的是string类型</h6>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/parse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1553,7 +1563,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/keycode/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/math/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="格子">
@@ -1572,7 +1582,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/23/keycode/" itemprop="url">键盘按键keyCode</a></h1>
+                <a class="post-title-link" href="/2017/07/29/math/" itemprop="url">数字相关Math对象和Number对象常用方法</a></h1>
         
 
         <div class="post-meta">
@@ -1584,8 +1594,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T11:00:22+08:00">
-                2017-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:52:12+08:00">
+                2017-07-29
               </time>
             
 
@@ -1643,334 +1653,14 @@
       
         
           
-            <p>说到键盘事件，自然的就想到了键盘按键，当我们在输入到某个特定的键时需要做一些特殊的处理就需要去判断这个keyCode了。</p>
-<p>键盘上每个一按键对应一个Unicode码，这样我们可以根据这个字符编码来知道用户按下了哪个键。比如，我们在一些表单填写过程中当最后一个表单填写过程中如果用户输入了Enter回车键，这个时候就去提交表单：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lastInput = <span class="built_in">document</span>.getElementById(<span class="string">'lastInput'</span>);         </div><div class="line">lastInput.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  e = e || <span class="built_in">window</span>.event;</div><div class="line">   <span class="keyword">var</span> key = e.keyCode|| e.which;</div><div class="line">   <span class="keyword">if</span>(key == <span class="number">13</span>)&#123; <span class="comment">//判断是否按下ENTER键</span></div><div class="line">     alert(<span class="string">'按下了ENTER键'</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当我们知道某个按键码，想知道对应的字符的时候可以使用fromCharCode()方法：<br>用法：String.fromCharCode(number);</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n = <span class="built_in">String</span>.fromCharCode(<span class="number">65</span>);</div><div class="line">alert(n); <span class="comment">//A</span></div></pre></td></tr></table></figure>
-<style>
-.table-title{border:solid 1px #ddd; width:598px; padding:10px; font-size:14px; font-weight:bold;color:#3194d0; margin:20px 0 -20px 0; text-align:center;}
-</style>
-
-<h5 id="keyCode-对照表"><a href="#keyCode-对照表" class="headerlink" title="keyCode 对照表"></a>keyCode 对照表</h5><div class="table-title">字母和数字键的键码值</div>
-
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>65</td>
-<td>J</td>
-<td>74</td>
-<td>S</td>
-<td>83</td>
-<td>1</td>
-<td>49</td>
-</tr>
-<tr>
-<td>B</td>
-<td>66</td>
-<td>K</td>
-<td>75</td>
-<td>T</td>
-<td>84</td>
-<td>2</td>
-<td>50</td>
-</tr>
-<tr>
-<td>C</td>
-<td>67</td>
-<td>L</td>
-<td>76</td>
-<td>U</td>
-<td>85</td>
-<td>3</td>
-<td>51</td>
-</tr>
-<tr>
-<td>D</td>
-<td>68</td>
-<td>M</td>
-<td>77</td>
-<td>V</td>
-<td>86</td>
-<td>4</td>
-<td>52</td>
-</tr>
-<tr>
-<td>E</td>
-<td>69</td>
-<td>N</td>
-<td>78</td>
-<td>W</td>
-<td>87</td>
-<td>5</td>
-<td>53</td>
-</tr>
-<tr>
-<td>F</td>
-<td>70</td>
-<td>O</td>
-<td>79</td>
-<td>X</td>
-<td>88</td>
-<td>6</td>
-<td>54</td>
-</tr>
-<tr>
-<td>G</td>
-<td>71</td>
-<td>P</td>
-<td>80</td>
-<td>Y</td>
-<td>89</td>
-<td>7</td>
-<td>55</td>
-</tr>
-<tr>
-<td>H</td>
-<td>72</td>
-<td>Q</td>
-<td>81</td>
-<td>Z</td>
-<td>90</td>
-<td>8</td>
-<td>56</td>
-</tr>
-<tr>
-<td>I</td>
-<td>73</td>
-<td>R</td>
-<td>82</td>
-<td>0</td>
-<td>48</td>
-<td>9</td>
-<td>57</td>
-</tr>
-</tbody>
-</table>
-<div class="table-title">控制键键码值</div>
-
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BackSpace</td>
-<td>8</td>
-<td>Esc</td>
-<td>27</td>
-<td>Right Arrow</td>
-<td>39</td>
-<td>-_</td>
-<td>189</td>
-</tr>
-<tr>
-<td>Tab</td>
-<td>9</td>
-<td>Spacebar</td>
-<td>32</td>
-<td>Down Arrow</td>
-<td>40</td>
-<td>.&gt;</td>
-<td>190</td>
-</tr>
-<tr>
-<td>Clear</td>
-<td>12</td>
-<td>Page Up</td>
-<td>33</td>
-<td>Insert</td>
-<td>45</td>
-<td>/?</td>
-<td>191</td>
-</tr>
-<tr>
-<td>Enter</td>
-<td>13</td>
-<td>Page Down</td>
-<td>34</td>
-<td>Delete</td>
-<td>46</td>
-<td>`~</td>
-<td>192</td>
-</tr>
-<tr>
-<td>Shift</td>
-<td>16</td>
-<td>End</td>
-<td>35</td>
-<td>Num Lock</td>
-<td>144</td>
-<td>[{</td>
-<td>219</td>
-</tr>
-<tr>
-<td>Control</td>
-<td>17</td>
-<td>Home</td>
-<td>36</td>
-<td>:;</td>
-<td>186</td>
-<td>/&#124;</td>
-<td>220</td>
-</tr>
-<tr>
-<td>Alt</td>
-<td>18</td>
-<td>left Arrow</td>
-<td>37</td>
-<td>+=</td>
-<td>187</td>
-<td>]}</td>
-<td>221</td>
-</tr>
-<tr>
-<td>Cape Lock</td>
-<td>20</td>
-<td>up Arrow</td>
-<td>38</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="table-title">数字键盘上的键的键码值</div>
-
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>96</td>
-<td>8</td>
-<td>104</td>
-</tr>
-<tr>
-<td>1</td>
-<td>97</td>
-<td>9</td>
-<td>105</td>
-</tr>
-<tr>
-<td>2</td>
-<td>98</td>
-<td>*</td>
-<td>106</td>
-</tr>
-<tr>
-<td>3</td>
-<td>99</td>
-<td>+</td>
-<td>107</td>
-</tr>
-<tr>
-<td>4</td>
-<td>100</td>
-<td>Enter</td>
-<td>108</td>
-</tr>
-<tr>
-<td>5</td>
-<td>101</td>
-<td>-</td>
-<td>109</td>
-</tr>
-<tr>
-<td>6</td>
-<td>102</td>
-<td>.</td>
-<td>110</td>
-</tr>
-<tr>
-<td>7</td>
-<td>103</td>
-<td>/</td>
-<td>111</td>
-</tr>
-</tbody>
-</table>
-<div class="table-title">功能键键码值</div>
-
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>键码</th>
-<th>按键</th>
-<th>键码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F1</td>
-<td>112</td>
-<td>F7</td>
-<td>118</td>
-</tr>
-<tr>
-<td>F2</td>
-<td>113</td>
-<td>F8</td>
-<td>119</td>
-</tr>
-<tr>
-<td>F3</td>
-<td>114</td>
-<td>F9</td>
-<td>120</td>
-</tr>
-<tr>
-<td>F4</td>
-<td>115</td>
-<td>F10</td>
-<td>121</td>
-</tr>
-<tr>
-<td>F5</td>
-<td>116</td>
-<td>F11</td>
-<td>122</td>
-</tr>
-<tr>
-<td>F6</td>
-<td>117</td>
-<td>F12</td>
-<td>123</td>
-</tr>
-</tbody>
-</table>
-
+            <p>在项目开发过程中，经常用到一些数字的计算与转化，觉得还是总结一下比较好。跟数字相关的javascript对象有Math和Number,下面是一些常用方法：</p>
+<p>Math对象没有构建函数Math(),使用时无需先new一个，直接使用方法即可。</p>
+<h5 id="常用的Math对象方法："><a href="#常用的Math对象方法：" class="headerlink" title="常用的Math对象方法："></a>常用的Math对象方法：</h5><h6 id="abs-x-：返回x绝对值"><a href="#abs-x-：返回x绝对值" class="headerlink" title="abs(x)：返回x绝对值"></a>abs(x)：返回x绝对值</h6><h6 id="min-x-y-：返回x、y中最小值"><a href="#min-x-y-：返回x、y中最小值" class="headerlink" title="min(x,y)：返回x、y中最小值"></a>min(x,y)：返回x、y中最小值</h6><h6 id="max-x-y-：返回x、y中最大值"><a href="#max-x-y-：返回x、y中最大值" class="headerlink" title="max(x,y)：返回x、y中最大值"></a>max(x,y)：返回x、y中最大值</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.abs(<span class="number">-20.022</span>);<span class="comment">//20.022</span></div><div class="line"><span class="built_in">Math</span>.min(<span class="number">10</span>,<span class="number">20</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">30</span>);<span class="comment">//30</span></div></pre></td></tr></table></figure>
+<h6 id="ceil-x-：对x进行向上舍入成整数"><a href="#ceil-x-：对x进行向上舍入成整数" class="headerlink" title="ceil(x)：对x进行向上舍入成整数"></a>ceil(x)：对x进行向上舍入成整数</h6><h6 id="floor-x-：对x进行向下舍入成整数"><a href="#floor-x-：对x进行向下舍入成整数" class="headerlink" title="floor(x)：对x进行向下舍入成整数"></a>floor(x)：对x进行向下舍入成整数</h6><h6 id="round-x-：对x进行四舍五入成整数"><a href="#round-x-：对x进行四舍五入成整数" class="headerlink" title="round(x)：对x进行四舍五入成整数"></a>round(x)：对x进行四舍五入成整数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.ceil(<span class="number">10.12</span>);<span class="comment">//11</span></div><div class="line"><span class="built_in">Math</span>.floor(<span class="number">10.82</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.12</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">10.82</span>);<span class="comment">//11</span></div></pre></td></tr></table></figure>
+<h6 id="random-：返回-0-1-之间的随机数"><a href="#random-：返回-0-1-之间的随机数" class="headerlink" title="random()：返回 0 ~ 1 之间的随机数"></a>random()：返回 0 ~ 1 之间的随机数</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*<span class="number">100</span>+<span class="number">1</span>);<span class="comment">//1-100随机整数</span></div></pre></td></tr></table></figure>
+<h5 id="Number对象有构建函数，它最有用的方法是toFixed"><a href="#Number对象有构建函数，它最有用的方法是toFixed" class="headerlink" title="Number对象有构建函数，它最有用的方法是toFixed():"></a>Number对象有构建函数，它最有用的方法是toFixed():</h5><h6 id="toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><a href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20" class="headerlink" title="toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"></a>toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n= <span class="number">12.34</span>;</div><div class="line">n.toFixed(<span class="number">0</span>);<span class="comment">//"12"</span></div><div class="line">n.toFixed(<span class="number">1</span>);<span class="comment">//"12.3"</span></div><div class="line">n.toFixed(<span class="number">5</span>);<span class="comment">//"12.34000"</span></div></pre></td></tr></table></figure>
+<p>foFixed()用来截取小数位非常好用，不足的可以补0。<br>注意几点：</p>
+<h6 id="1、n必须是Number类型"><a href="#1、n必须是Number类型" class="headerlink" title="1、n必须是Number类型"></a>1、n必须是Number类型</h6><h6 id="2、返回的是string类型"><a href="#2、返回的是string类型" class="headerlink" title="2、返回的是string类型"></a>2、返回的是string类型</h6>
           
         
       
@@ -2053,7 +1743,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
