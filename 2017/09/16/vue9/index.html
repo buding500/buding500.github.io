@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。 templete:1&amp;lt;img :src=&quot;headImgurl? headImgurl : &apos;../assets/headDefault.jpg&apos;&quot;&amp;gt; 怎么折腾都不出来图片啊，自己写了个img，src直接写headDe">
+<meta name="description" content="用户短信验证码登录时发送短信有个倒计时功能，也就是发送之后60s内按钮不可用，先上代码：template代码：123&amp;lt;input type=&quot;text&quot; pattern=&quot;[0-9]*&quot; v-model=&quot;tel&quot; name=&quot;telephone&quot; placeholder=&quot;请输入手机号码&quot;&amp;gt;&amp;lt;input type=&quot;text&quot; pattenr=&quot;[0-9]*&quot; v-model=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue中动态绑定src图片路径问题">
-<meta property="og:url" content="http://yoursite.com/2017/09/10/vue8/index.html">
+<meta property="og:title" content="vue中绑定属性条件渲染真假要使用恒等于">
+<meta property="og:url" content="http://yoursite.com/2017/09/16/vue9/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
-<meta property="og:description" content="现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。 templete:1&amp;lt;img :src=&quot;headImgurl? headImgurl : &apos;../assets/headDefault.jpg&apos;&quot;&amp;gt; 怎么折腾都不出来图片啊，自己写了个img，src直接写headDe">
-<meta property="og:updated_time" content="2017-09-10T12:51:29.248Z">
+<meta property="og:description" content="用户短信验证码登录时发送短信有个倒计时功能，也就是发送之后60s内按钮不可用，先上代码：template代码：123&amp;lt;input type=&quot;text&quot; pattern=&quot;[0-9]*&quot; v-model=&quot;tel&quot; name=&quot;telephone&quot; placeholder=&quot;请输入手机号码&quot;&amp;gt;&amp;lt;input type=&quot;text&quot; pattenr=&quot;[0-9]*&quot; v-model=">
+<meta property="og:updated_time" content="2017-09-16T15:20:56.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue中动态绑定src图片路径问题">
-<meta name="twitter:description" content="现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。 templete:1&amp;lt;img :src=&quot;headImgurl? headImgurl : &apos;../assets/headDefault.jpg&apos;&quot;&amp;gt; 怎么折腾都不出来图片啊，自己写了个img，src直接写headDe">
+<meta name="twitter:title" content="vue中绑定属性条件渲染真假要使用恒等于">
+<meta name="twitter:description" content="用户短信验证码登录时发送短信有个倒计时功能，也就是发送之后60s内按钮不可用，先上代码：template代码：123&amp;lt;input type=&quot;text&quot; pattern=&quot;[0-9]*&quot; v-model=&quot;tel&quot; name=&quot;telephone&quot; placeholder=&quot;请输入手机号码&quot;&amp;gt;&amp;lt;input type=&quot;text&quot; pattenr=&quot;[0-9]*&quot; v-model=">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/10/vue8/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/16/vue9/"/>
 
 
 
 
 
-  <title>vue中动态绑定src图片路径问题 | Gezi's Notes</title>
+  <title>vue中绑定属性条件渲染真假要使用恒等于 | Gezi's Notes</title>
   
 
 
@@ -255,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/vue8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/16/vue9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="格子">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue中动态绑定src图片路径问题</h1>
+          <h1 class="post-title" itemprop="name headline">vue中绑定属性条件渲染真假要使用恒等于</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T20:42:40+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T22:13:27+08:00">
+                2017-09-16
               </time>
             
 
@@ -341,10 +341,12 @@
       
 
       
-        <p>现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。</p>
-<p>templete:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img :src=<span class="string">"headImgurl? headImgurl : '../assets/headDefault.jpg'"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>怎么折腾都不出来图片啊，自己写了个img，src直接写headDefault.jpg又能显示，奇了个怪了。于是百度了下，原来，动态绑定的src的文件要放到static目录下，貌似跟webpack打包是有关系的。</p>
-<p>然后我把图片移到static文件夹下，把图片路径改成如下方式便成功了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img :src=<span class="string">"headImgurl? headImgurl : '../../static/headDefault.jpg'"</span>&gt;</div></pre></td></tr></table></figure></p>
+        <p>用户短信验证码登录时发送短信有个倒计时功能，也就是发送之后60s内按钮不可用，先上代码：<br>template代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> pattern=<span class="string">"[0-9]*"</span> v-model=<span class="string">"tel"</span> name=<span class="string">"telephone"</span> placeholder=<span class="string">"请输入手机号码"</span>&gt;</div><div class="line">&lt;input type="text" pattenr="[0-9]*" v-model="msgCode" name="msgCode" placeholder="请输入短信验证码"&gt;</div><div class="line">&lt;input type="button" :disabled="countTime" :value="tipMsg" @click="msgLogin"&gt;</div></pre></td></tr></table></figure></p>
+<p>script代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</div><div class="line">  data()&#123;</div><div class="line">    <span class="keyword">return</span>&#123;</div><div class="line">      <span class="attr">tel</span>:<span class="string">''</span>,</div><div class="line">      <span class="attr">msgCode</span>:<span class="string">''</span>,</div><div class="line">      <span class="attr">countTime</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>:&#123;</div><div class="line">    tipMsg()&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.countTime ? <span class="string">'重新发送('</span>+ <span class="keyword">this</span>.countTime +<span class="string">')'</span> : <span class="string">'获取验证码'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>:&#123;</div><div class="line">    msgLogin()&#123;</div><div class="line">      <span class="keyword">if</span>(!<span class="keyword">this</span>.tel)&#123;</div><div class="line">        alert(<span class="string">'手机号码不能为空'</span>)</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">this</span>.countTime = <span class="number">60</span></div><div class="line">        <span class="keyword">var</span> t = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">          <span class="keyword">this</span>.countTime--</div><div class="line">          <span class="keyword">if</span>(!<span class="keyword">this</span>.countTime)&#123;</div><div class="line">            clearInterval(t)</div><div class="line">          &#125;</div><div class="line">        &#125;，<span class="number">1000</span>)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来让我非常纳闷，获取验证码的按钮怎么都点不了，审查元素一看，disabled=”disabled”，我仔细一想countTime初始设置为0，js里0就是false呀，怎么的一开始就绑定上去了呢？我把它改成:disabled=”countTime != 0”，没有问题；然后我又把countTime的初始值设为false也没有问题，想不通啊，到底怎么回事呢？</p>
+<p>原来在vue里，渲染所用的真假值都是使用的恒等于，在这里只有countTime不等于0的时候，我们就要加上disabled属性让按钮不可点。那么一开始:disabled=”!countTime”，按理论是达到了效果，但应vue里的恒等于要求，这里就要改成:disabled=”!!countTime”了</p>
+<p>最终只需要改动disabled的绑定值就可以了，即:disabled=”!!countTime”</p>
+<font color="#f00">要记住：vue中所有的绑定、条件渲染都使用的恒等于</font>
 
       
     </div>
@@ -381,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/10/vue7/" rel="next" title="vue中拨打电话">
-                <i class="fa fa-chevron-left"></i> vue中拨打电话
+              <a href="/2017/09/10/vue8/" rel="next" title="vue中动态绑定src图片路径问题">
+                <i class="fa fa-chevron-left"></i> vue中动态绑定src图片路径问题
               </a>
             
           </div>
@@ -391,8 +393,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/16/vue9/" rel="prev" title="vue中绑定属性条件渲染真假要使用恒等于">
-                vue中绑定属性条件渲染真假要使用恒等于 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/16/vue10/" rel="prev" title="vue router2.0中go和push的用法">
+                vue router2.0中go和push的用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

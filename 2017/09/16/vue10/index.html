@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。 templete:1&amp;lt;img :src=&quot;headImgurl? headImgurl : &apos;../assets/headDefault.jpg&apos;&quot;&amp;gt; 怎么折腾都不出来图片啊，自己写了个img，src直接写headDe">
+<meta name="description" content="项目中有个搜索组件，在用户点搜索按钮的时候跳转到搜索页面，而这个搜索按钮是默认调起的键盘上的搜索，js里写的是在@keyup.enter的方法中进行页面的跳转。我当时也没多想，直接就用了this.$router.go(‘/search’)，死活就是不进行跳转，然后去官方看了一下api。它是这样写的： 为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue中动态绑定src图片路径问题">
-<meta property="og:url" content="http://yoursite.com/2017/09/10/vue8/index.html">
+<meta property="og:title" content="vue router2.0中go和push的用法">
+<meta property="og:url" content="http://yoursite.com/2017/09/16/vue10/index.html">
 <meta property="og:site_name" content="Gezi&#39;s Notes">
-<meta property="og:description" content="现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。 templete:1&amp;lt;img :src=&quot;headImgurl? headImgurl : &apos;../assets/headDefault.jpg&apos;&quot;&amp;gt; 怎么折腾都不出来图片啊，自己写了个img，src直接写headDe">
-<meta property="og:updated_time" content="2017-09-10T12:51:29.248Z">
+<meta property="og:description" content="项目中有个搜索组件，在用户点搜索按钮的时候跳转到搜索页面，而这个搜索按钮是默认调起的键盘上的搜索，js里写的是在@keyup.enter的方法中进行页面的跳转。我当时也没多想，直接就用了this.$router.go(‘/search’)，死活就是不进行跳转，然后去官方看了一下api。它是这样写的： 为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/">
+<meta property="og:updated_time" content="2017-09-16T15:19:09.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue中动态绑定src图片路径问题">
-<meta name="twitter:description" content="现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。 templete:1&amp;lt;img :src=&quot;headImgurl? headImgurl : &apos;../assets/headDefault.jpg&apos;&quot;&amp;gt; 怎么折腾都不出来图片啊，自己写了个img，src直接写headDe">
+<meta name="twitter:title" content="vue router2.0中go和push的用法">
+<meta name="twitter:description" content="项目中有个搜索组件，在用户点搜索按钮的时候跳转到搜索页面，而这个搜索按钮是默认调起的键盘上的搜索，js里写的是在@keyup.enter的方法中进行页面的跳转。我当时也没多想，直接就用了this.$router.go(‘/search’)，死活就是不进行跳转，然后去官方看了一下api。它是这样写的： 为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/10/vue8/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/16/vue10/"/>
 
 
 
 
 
-  <title>vue中动态绑定src图片路径问题 | Gezi's Notes</title>
+  <title>vue router2.0中go和push的用法 | Gezi's Notes</title>
   
 
 
@@ -255,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/vue8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/16/vue10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="格子">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue中动态绑定src图片路径问题</h1>
+          <h1 class="post-title" itemprop="name headline">vue router2.0中go和push的用法</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T20:42:40+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T22:31:09+08:00">
+                2017-09-16
               </time>
             
 
@@ -341,10 +341,11 @@
       
 
       
-        <p>现在的项目中图片资源都放在assets文件夹下，调用都没什么问题。在做新页面的时候涉及到动态绑定一张图片，即某个图片字段有值则显示该图片，没有值的情况下则使用默认图片。</p>
-<p>templete:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img :src=<span class="string">"headImgurl? headImgurl : '../assets/headDefault.jpg'"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>怎么折腾都不出来图片啊，自己写了个img，src直接写headDefault.jpg又能显示，奇了个怪了。于是百度了下，原来，动态绑定的src的文件要放到static目录下，貌似跟webpack打包是有关系的。</p>
-<p>然后我把图片移到static文件夹下，把图片路径改成如下方式便成功了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img :src=<span class="string">"headImgurl? headImgurl : '../../static/headDefault.jpg'"</span>&gt;</div></pre></td></tr></table></figure></p>
+        <p>项目中有个搜索组件，在用户点搜索按钮的时候跳转到搜索页面，而这个搜索按钮是默认调起的键盘上的搜索，js里写的是在@keyup.enter的方法中进行页面的跳转。我当时也没多想，直接就用了this.$router.go(‘/search’)，死活就是不进行跳转，然后去官方看了一下api。它是这样写的：</p>
+<h5 id="为了与-HTML5-History-API-保持一致性，router-go-已经被用来作为-后退-前进导航，router-push-用来导向特殊页面。"><a href="#为了与-HTML5-History-API-保持一致性，router-go-已经被用来作为-后退-前进导航，router-push-用来导向特殊页面。" class="headerlink" title="为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/前进导航，router.push 用来导向特殊页面。"></a>为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/前进导航，router.push 用来导向特殊页面。</h5><p>也就是说router.go用来用为 前进/后退的导航了。 而要跳转到指定的页面需要使用router.push;</p>
+<p>在页面中使用&lt;router-link to=”…”&gt;&lt;/router-link&gt;就相当于调用router.push(…);</p>
+<p>还是来记录一下router.push的用法吧，前提是路由要配置好：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 字符串</span></div><div class="line"><span class="keyword">this</span>.$router.push(<span class="string">'/search'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 命名的路由</span></div><div class="line"><span class="keyword">this</span>.$router.push(&#123; <span class="attr">name</span>: <span class="string">'search'</span>, <span class="attr">params</span>: &#123; <span class="attr">keywords</span>: <span class="string">'大码女装'</span> &#125;&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 带查询参数</span></div><div class="line"><span class="keyword">this</span>.$router.push(&#123;<span class="attr">path</span>: <span class="string">'/search'</span>, <span class="attr">query</span>: &#123;<span class="attr">type</span>: <span class="string">'goods'</span>, <span class="attr">keywords</span>: <span class="string">'休闲'</span>&#125;&#125;);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/10/vue7/" rel="next" title="vue中拨打电话">
-                <i class="fa fa-chevron-left"></i> vue中拨打电话
+              <a href="/2017/09/16/vue9/" rel="next" title="vue中绑定属性条件渲染真假要使用恒等于">
+                <i class="fa fa-chevron-left"></i> vue中绑定属性条件渲染真假要使用恒等于
               </a>
             
           </div>
@@ -390,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/16/vue9/" rel="prev" title="vue中绑定属性条件渲染真假要使用恒等于">
-                vue中绑定属性条件渲染真假要使用恒等于 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,8 +437,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -494,6 +500,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#为了与-HTML5-History-API-保持一致性，router-go-已经被用来作为-后退-前进导航，router-push-用来导向特殊页面。"><span class="nav-number">1.</span> <span class="nav-text">为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/前进导航，router.push 用来导向特殊页面。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

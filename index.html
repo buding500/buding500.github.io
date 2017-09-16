@@ -256,6 +256,283 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/16/vue10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/16/vue10/" itemprop="url">vue router2.0中go和push的用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T22:31:09+08:00">
+                2017-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>项目中有个搜索组件，在用户点搜索按钮的时候跳转到搜索页面，而这个搜索按钮是默认调起的键盘上的搜索，js里写的是在@keyup.enter的方法中进行页面的跳转。我当时也没多想，直接就用了this.$router.go(‘/search’)，死活就是不进行跳转，然后去官方看了一下api。它是这样写的：</p>
+<h5 id="为了与-HTML5-History-API-保持一致性，router-go-已经被用来作为-后退-前进导航，router-push-用来导向特殊页面。"><a href="#为了与-HTML5-History-API-保持一致性，router-go-已经被用来作为-后退-前进导航，router-push-用来导向特殊页面。" class="headerlink" title="为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/前进导航，router.push 用来导向特殊页面。"></a>为了与 HTML5 History API 保持一致性，router.go 已经被用来作为 后退/前进导航，router.push 用来导向特殊页面。</h5><p>也就是说router.go用来用为 前进/后退的导航了。 而要跳转到指定的页面需要使用router.push;</p>
+<p>在页面中使用&lt;router-link to=”…”&gt;&lt;/router-link&gt;就相当于调用router.push(…);</p>
+<p>还是来记录一下router.push的用法吧，前提是路由要配置好：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 字符串</span></div><div class="line"><span class="keyword">this</span>.$router.push(<span class="string">'/search'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 命名的路由</span></div><div class="line"><span class="keyword">this</span>.$router.push(&#123; <span class="attr">name</span>: <span class="string">'search'</span>, <span class="attr">params</span>: &#123; <span class="attr">keywords</span>: <span class="string">'大码女装'</span> &#125;&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 带查询参数</span></div><div class="line"><span class="keyword">this</span>.$router.push(&#123;<span class="attr">path</span>: <span class="string">'/search'</span>, <span class="attr">query</span>: &#123;<span class="attr">type</span>: <span class="string">'goods'</span>, <span class="attr">keywords</span>: <span class="string">'休闲'</span>&#125;&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/16/vue9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/16/vue9/" itemprop="url">vue中绑定属性条件渲染真假要使用恒等于</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T22:13:27+08:00">
+                2017-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>用户短信验证码登录时发送短信有个倒计时功能，也就是发送之后60s内按钮不可用，先上代码：<br>template代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> pattern=<span class="string">"[0-9]*"</span> v-model=<span class="string">"tel"</span> name=<span class="string">"telephone"</span> placeholder=<span class="string">"请输入手机号码"</span>&gt;</div><div class="line">&lt;input type="text" pattenr="[0-9]*" v-model="msgCode" name="msgCode" placeholder="请输入短信验证码"&gt;</div><div class="line">&lt;input type="button" :disabled="countTime" :value="tipMsg" @click="msgLogin"&gt;</div></pre></td></tr></table></figure></p>
+<p>script代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</div><div class="line">  data()&#123;</div><div class="line">    <span class="keyword">return</span>&#123;</div><div class="line">      <span class="attr">tel</span>:<span class="string">''</span>,</div><div class="line">      <span class="attr">msgCode</span>:<span class="string">''</span>,</div><div class="line">      <span class="attr">countTime</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>:&#123;</div><div class="line">    tipMsg()&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.countTime ? <span class="string">'重新发送('</span>+ <span class="keyword">this</span>.countTime +<span class="string">')'</span> : <span class="string">'获取验证码'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>:&#123;</div><div class="line">    msgLogin()&#123;</div><div class="line">      <span class="keyword">if</span>(!<span class="keyword">this</span>.tel)&#123;</div><div class="line">        alert(<span class="string">'手机号码不能为空'</span>)</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">this</span>.countTime = <span class="number">60</span></div><div class="line">        <span class="keyword">var</span> t = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">          <span class="keyword">this</span>.countTime--</div><div class="line">          <span class="keyword">if</span>(!<span class="keyword">this</span>.countTime)&#123;</div><div class="line">            clearInterval(t)</div><div class="line">          &#125;</div><div class="line">        &#125;，<span class="number">1000</span>)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来让我非常纳闷，获取验证码的按钮怎么都点不了，审查元素一看，disabled=”disabled”，我仔细一想countTime初始设置为0，js里0就是false呀，怎么的一开始就绑定上去了呢？我把它改成:disabled=”countTime != 0”，没有问题；然后我又把countTime的初始值设为false也没有问题，想不通啊，到底怎么回事呢？</p>
+<p>原来在vue里，渲染所用的真假值都是使用的恒等于，在这里只有countTime不等于0的时候，我们就要加上disabled属性让按钮不可点。那么一开始:disabled=”!countTime”，按理论是达到了效果，但应vue里的恒等于要求，这里就要改成:disabled=”!!countTime”了</p>
+<p>最终只需要改动disabled的绑定值就可以了，即:disabled=”!!countTime”</p>
+<font color="#f00">要记住：vue中所有的绑定、条件渲染都使用的恒等于</font>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/vue8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1388,308 +1665,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/margin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/10/margin/" itemprop="url">margin负值进行两栏或三栏自适应布局</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T21:11:10+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有个后台项目需要使用两栏自适应布局，用margin负值，同时自己也回顾一下：</p>
-<style>
-.f40{color:#f40;}
-</style>
-
-<h5 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a><span class="f40">两栏布局</span></h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">float</span>:left; <span class="attribute">height</span>:<span class="number">500px</span>; <span class="attribute">background</span>:<span class="number">#ddd</span>; <span class="attribute">margin-right</span>:-<span class="number">200px</span>;&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;<span class="attribute">margin-left</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">500px</span>;&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>原理：</p>
-<ul>
-<li>left元素float之后，会自动脱离文档，main元素则会跑到left右边，</li>
-<li>left元素margin-right负值之后，main容器的起始位置跟left容器一样了，这时left元素在main元素之的上层。</li>
-<li>给main元素margin-left值等于left的宽度值，left元素的负margin和main元素的正margin相抵消，main元素的起始位置在left元素的结束位置了，即实现了自适应。</li>
-</ul>
-<h5 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a><span class="f40">三栏布局</span></h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">float</span>:left; <span class="attribute">height</span>:<span class="number">500px</span>;&#125;</div><div class="line"><span class="selector-class">.left</span>, <span class="selector-class">.right</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">float</span>:left; <span class="attribute">height</span>:<span class="number">500px</span>; <span class="attribute">background</span>:<span class="number">#f00</span>;&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-class">.right</span>&#123; <span class="attribute">margin-left</span>:-<span class="number">200px</span>;&#125;</div><div class="line"><span class="selector-class">.main-content</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">500px</span>; <span class="attribute">background</span>:<span class="number">#ccc</span>;&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main-content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>原理：</p>
-<ul>
-<li>三者均使用float让自己脱离文档流。这个地方注意main元素写在最前面，给宽度100%;</li>
-<li>left元素使用margin负值将自己放到main元素上方的最左侧位置；</li>
-<li>right元素使用margin负值将自己放到main元素上方的右侧位置；</li>
-<li>这个时候的main元素实际是全屏宽度，位于left元素和right元素下方。给main元素一个子元素，margin左右值给left元素和right元素的宽度，那么内容区域就是main-content，显示在了最中间，且宽度自适应；</li>
-<li>这个地方的margin负值仅仅用来让left和right定位到main上方的位置，并没有像两栏布局一样是一个相抵消的过程。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/mouse/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/09/mouse/" itemprop="url">mouse的那些事</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T20:52:50+08:00">
-                2017-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jquery/" itemprop="url" rel="index">
-                    <span itemprop="name">jquery</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>老是在写鼠标事件，却没认真仔细的区别好它们，今天来总结下它们的用法和区别。jquery里的mouse事件一共有7个，它们分别是：</p>
-<style>
-.f40{color:#f40;}
-</style>
-
-<h5 id="mouseenter-鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。"><a href="#mouseenter-鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。" class="headerlink" title="mouseenter: 鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。"></a><span class="f40">mouseenter:</span> 鼠标指针穿过被选元素时触发。只有在鼠标指针穿过被选元素时，才会触发mouserenter事件，大多数情况下与mouseleave一起使用。</h5><h5 id="mouseleave：-鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。"><a href="#mouseleave：-鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。" class="headerlink" title="mouseleave： 鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。"></a><span class="f40">mouseleave：</span> 鼠标指针离开被选元素时触发。只有在鼠标指针离开被选元素时，才会触发mouseleave事件，大多数情况下与mouseenter一起使用。</h5><h5 id="mouseover：-当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。"><a href="#mouseover：-当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。" class="headerlink" title="mouseover： 当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。"></a><span class="f40">mouseover：</span> 当鼠标指针位于元素上方时触发。不论鼠标指针穿过被选元素或者其子元素时，都会触发mouseover事件，大多数情况下与mouseout一起使用。</h5><h5 id="mouseout：-当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件，-大多数情况下与mouseover一起使用。"><a href="#mouseout：-当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件，-大多数情况下与mouseover一起使用。" class="headerlink" title="mouseout： 当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件， 大多数情况下与mouseover一起使用。"></a><span class="f40">mouseout：</span> 当鼠标指针从元素上方移开时触发。不论鼠标指针离开被选元素或者其子元素时，都会触发mouseout事件， 大多数情况下与mouseover一起使用。</h5><h5 id="mousedown-当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。"><a href="#mousedown-当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。" class="headerlink" title="mousedown:  当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。"></a><span class="f40">mousedown: </span> 当鼠标指针移到到元素上方，并按下鼠标按键时触发。mousedown事件仅需要按键被按下，而不需要按键松开即可发生。</h5><h5 id="mouseup：-当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。"><a href="#mouseup：-当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。" class="headerlink" title="mouseup：  当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。"></a><span class="f40">mouseup： </span> 当鼠标指针在元素上方松开按键时发生，mouseup事件仅需要放松按键。</h5><h5 id="mousemove-当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其-clientX和-clientY属性代表鼠标的坐标。"><a href="#mousemove-当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其-clientX和-clientY属性代表鼠标的坐标。" class="headerlink" title="mousemove:  当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其.clientX和.clientY属性代表鼠标的坐标。"></a><span class="f40">mousemove: </span> 当鼠标指针在指定的元素中移动时触发，mousemove事件处理函数会被传递一个变量，即Event事件对象，其.clientX和.clientY属性代表鼠标的坐标。</h5><p>描述写了这么多，还是来看代码比较清楚明了：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">200px</span>; <span class="attribute">background</span>:<span class="number">#eee</span>; <span class="attribute">margin</span>:<span class="number">20px</span>;&#125;</div><div class="line"><span class="selector-class">.ele</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:<span class="number">100px</span>;<span class="attribute">background</span>:<span class="number">#ddd</span>;&#125;</div><div class="line"><span class="selector-class">.bg</span>&#123;<span class="attribute">background</span>:blue;&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"mouseEnterBox"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ele"</span>&gt;</span>mouserenter:<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"mouseOverBox"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ele"</span>&gt;</span>mouseover:<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ele"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> x=y=<span class="number">0</span>;</div><div class="line">    <span class="comment">//mouseenter</span></div><div class="line">    $(<span class="string">'#mouseEnterBox'</span>).on(<span class="string">'mouseenter'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       $(<span class="keyword">this</span>).addClass(<span class="string">'bg'</span>).children(<span class="string">'.ele'</span>).text(<span class="string">'mouseenter：'</span> + (x++));</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//mouseleave</span></div><div class="line">    $(<span class="string">'#mouseEnterBox'</span>).on(<span class="string">'mouseleave'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).removeClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">//mouseover</span></div><div class="line">    $(<span class="string">'#mouseOverBox'</span>).on(<span class="string">'mouseover'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).addClass(<span class="string">'bg'</span>).children(<span class="string">'.ele'</span>).text(<span class="string">'mouseover:'</span> + (y++));</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//mouseout</span></div><div class="line">    $(<span class="string">'#mouseOverBox'</span>).on(<span class="string">'mouseout'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).removeClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);  </div><div class="line"></div><div class="line">    <span class="comment">//mousedown</span></div><div class="line">    $(<span class="string">'#box'</span>).on(<span class="string">'mousedown'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).addClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//mouseup</span></div><div class="line">    $(<span class="string">'#box'</span>).on(<span class="string">'mouseup'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).removeClass(<span class="string">'bg'</span>);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">//mousemove</span></div><div class="line">    $(<span class="string">'#box'</span>).on(<span class="string">'mousemove'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).find(<span class="string">'.ele'</span>).text(<span class="string">'X:'</span> + e.clientX +<span class="string">', Y:'</span> + e.clientY );      </div><div class="line">    &#125;);  </div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<ul>
-<li>对于mouseenter和mouseover的区别，只需要鼠标来回移动到所选元素和其子元素之间就可以看出来。mouseover事件在鼠标移动到子元素上时也会触发，而mouseenter则不会。</li>
-<li>mousedown和mouseup只有在按键时才会触发。</li>
-<li>mousemove只在要触发该事件的元素上方都会触发，Event对象事件用来记录鼠标的位置。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1739,7 +1714,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
