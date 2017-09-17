@@ -256,6 +256,295 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/30/vue2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/30/vue2/" itemprop="url">vue-router基本配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T23:15:14+08:00">
+                2017-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>多页面应用，主要是router的配置，不同的url跳转到不同的页面。vue-cli创建项目时会有vue-router的选项，选择yes会自动创建router的文件夹，里面的index.js就是我们要写配置代码的地方。</p>
+<p>接着昨天的项目来，先在src里创建一个page的文件夹，用来放页面。先创建一个home.vue，也就是首页。</p>
+<p>然后我们来在home.vue里写点代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">  export default&#123;</div><div class="line">      name:'home',</div><div class="line">      data () &#123;</div><div class="line">          return &#123;</div><div class="line">              msg:'首页'</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>接着我们来配置路由。打开router文件夹下的index，有些它已经写好了，我们不用管，然后用最简单的方式来把我们需要的写进去：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></div><div class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">'@/page/home'</span></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  <span class="attr">routes</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">      <span class="attr">redirect</span>: <span class="string">'/home'</span> <span class="comment">//没有输入页面地址默认进入home页</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/home'</span>,</div><div class="line">      <span class="attr">component</span>: home</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>一个简单的路由就好了。</p>
+<p>那么，路由配置好了，页面之间的跳转应该怎么去写呢？</p>
+<p>我们在page下新建一个user.vue，写几句代码<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;router-link to="/home"&gt;返回首页&lt;/h1&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">  export default&#123;</div><div class="line">      name:'user',</div><div class="line">      data () &#123;</div><div class="line">          return &#123;</div><div class="line"></div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>然后在路由里配置下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></div><div class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">'@/page/home'</span></div><div class="line"><span class="keyword">import</span> user <span class="keyword">from</span> <span class="string">'@/page/user'</span></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  <span class="attr">routes</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">      <span class="attr">redirect</span>: <span class="string">'/home'</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/home'</span>,</div><div class="line">      <span class="attr">component</span>: home</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/user'</span>,</div><div class="line">      <span class="attr">component</span>: user</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>这个时候我们直接访问user页面，点击“返回首页”，页面就跳回去home了。 通过vue-router来配置过后的页面都可以使用router-link属性来进行页面的跳转；它的参数有好几种方式，具体可参考vue-router官方文档：<a href="https://router.vuejs.org/zh-cn/api/router-link.html" target="_blank" rel="external">https://router.vuejs.org/zh-cn/api/router-link.html</a></p>
+<p>做项目总是在不断的尝试中前进，也没有花太多时间去具体研究某一门技术，这里的vue-router先这样用着，项目运行起来是关键，后面如果有需求再来更新文章做笔记。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/30/vue1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/30/vue1/" itemprop="url">使用vue-cli创建一个vue项目</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T22:11:29+08:00">
+                2017-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>公司做移动端项目，老大选择用vue来进行，于是开始了Vue学习之旅。</p>
+<p>创建项目直接选用vue脚手架vue-cli来进行。</p>
+<h5 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h5><h6 id="node-官方下载安装即可，地址：http-nodejs-cn"><a href="#node-官方下载安装即可，地址：http-nodejs-cn" class="headerlink" title="node 官方下载安装即可，地址：http://nodejs.cn/"></a>node 官方下载安装即可，地址：<a href="http://nodejs.cn/" target="_blank" rel="external">http://nodejs.cn/</a></h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">查看版本: node -v</div></pre></td></tr></table></figure>
+<h6 id="npm-node安装会自动安装npm"><a href="#npm-node安装会自动安装npm" class="headerlink" title="npm node安装会自动安装npm"></a>npm node安装会自动安装npm</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">查看版本: npm -v</div></pre></td></tr></table></figure>
+<p>npm由于是国外服务器，在国内访问很慢，强大的淘宝团队折腾出了cnpm，称为淘宝镜像，官方网址：<a href="http://npm.taobao.org" target="_blank" rel="external">http://npm.taobao.org</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">安装cnpm: npm install cnpm -g --registry=https:<span class="comment">//registry.npm.taobao.org</span></div><div class="line">查看版本:  cnpm -v</div></pre></td></tr></table></figure></p>
+<p>接下来就可以使用cnpm来代替npm了。</p>
+<h6 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install vue-cli -g</div></pre></td></tr></table></figure>
+<h6 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install webpack -g</div></pre></td></tr></table></figure>
+<p>接下来就可以开始建项目了，打开你要建项目的文件夹,比如我建在E盘的vue文件夹下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">e: <span class="comment">//进入E盘</span></div><div class="line">cd vue <span class="comment">//打开vue文件夹</span></div><div class="line">vue init webpack xzwap <span class="comment">//创建项目</span></div></pre></td></tr></table></figure></p>
+<p>接下来就是一路enter了，这些配置的说明如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">? Project name xzwap   <span class="comment">//项目名是xzwap</span></div><div class="line">? Project description A Vue.js project  <span class="comment">//文档描述，会在README.md文件上生成输入的内容，默认 A Vue.js project</span></div><div class="line">? Author _**** <span class="xml"><span class="tag">&lt;<span class="name">****@**.com</span>&gt;</span>  //作者，如果有git，就是读取git的User信息</span></div><div class="line">? Vue build standalone  //有两个选项，第一个选项写着recommended for most users果断选了（至于干什么用到并不知道）</div><div class="line">? Use ESLint to lint your code? Yes  //是否使用ESlint 默认是</div><div class="line">? Pick an ESLint preset Standard  //选这个一个ESlint类型</div><div class="line">? Setup unit tests with Karma + Mocha? Yes  //使用单元测试工具karma和mocha 默认是</div><div class="line">? Setup e2e tests with Nightwatch? Yes  //使用e2e测试框架 NightWatch 默认是</div></pre></td></tr></table></figure></p>
+<p>然后安装依赖：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd xzwap <span class="comment">//进入xzwap文件夹</span></div><div class="line">cnpm install <span class="comment">//安装依赖</span></div></pre></td></tr></table></figure></p>
+<p>运行项目：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm run dev</div></pre></td></tr></table></figure></p>
+<p>项目运行起来了，一个vue项目创建成功了！</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/margin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -558,145 +847,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/parse/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/29/parse/" itemprop="url">javascript中与parse有关的方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:52:12+08:00">
-                2017-07-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>parse在javascript中是用来强制转换类型的，在javascript中有关parse的方法有以下几个：<br>parseInt()、parseFloat()、Date.parse()以及JSON.parse();一一来看一下:</p>
-<h5 id="parseInt-：解析一个字符串-并返回一个整数。"><a href="#parseInt-：解析一个字符串-并返回一个整数。" class="headerlink" title="parseInt()：解析一个字符串,并返回一个整数。"></a>parseInt()：解析一个字符串,并返回一个整数。</h5><p>parseInt()会从第一个位置进行判断它是否是个有效数字；如果不是，则返回NaN。如果是有效数字，将继续向下查找直到发现非有效数字的字符为止，此时parseInt()将把该字符之前的字符串转换成数字。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="string">'123abc'</span>); <span class="comment">//123</span></div><div class="line"><span class="built_in">parseInt</span>(<span class="string">'2.3'</span>); <span class="comment">//2</span></div><div class="line"><span class="built_in">parseInt</span>(<span class="string">'a234b'</span>); <span class="comment">///NaN</span></div></pre></td></tr></table></figure></p>
-<h5 id="parseFloat-：函数可解析一个字符串-并返回一个浮点数。"><a href="#parseFloat-：函数可解析一个字符串-并返回一个浮点数。" class="headerlink" title="parseFloat()：函数可解析一个字符串,并返回一个浮点数。"></a>parseFloat()：函数可解析一个字符串,并返回一个浮点数。</h5><p>与parseInt()方法的处理方式相似，从第一个位置查看每个字符，到第一个非有效的字符为止，然后把该字符之前的字符串转换成数字。但是，对于这个方法来说，第一个出现的小数点是有效字符。如果有两个小数点，第二个小数点将被看作无效的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.23345'</span>); <span class="comment">//1.23345</span></div><div class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.23abc'</span>); <span class="comment">//1.23</span></div><div class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.23.45'</span>); <span class="comment">//1.23</span></div></pre></td></tr></table></figure></p>
-<h5 id="Date-parse-：将时间转成时间戳。返回该日期与-1970-年-1-月-1-日午夜之间相差的毫秒数。"><a href="#Date-parse-：将时间转成时间戳。返回该日期与-1970-年-1-月-1-日午夜之间相差的毫秒数。" class="headerlink" title="Date.parse()：将时间转成时间戳。返回该日期与 1970 年 1 月 1 日午夜之间相差的毫秒数。"></a>Date.parse()：将时间转成时间戳。返回该日期与 1970 年 1 月 1 日午夜之间相差的毫秒数。</h5><p>参数格式：月/日/年 时:分:秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Date</span>.parse(<span class="string">'7/29/2017'</span>); <span class="comment">//1501257600000</span></div><div class="line"><span class="built_in">Date</span>.parse(<span class="string">'14:01:20 7/29/2017'</span>); <span class="comment">//1501308080000</span></div></pre></td></tr></table></figure></p>
-<p>关于参数的问题可查看：<a href="http://www.cnblogs.com/yingcaiyi/p/4884903.html" target="_blank" rel="external">http://www.cnblogs.com/yingcaiyi/p/4884903.html</a></p>
-<h5 id="JSON-parse-：用于从一个字符串中解析出json-对象。"><a href="#JSON-parse-：用于从一个字符串中解析出json-对象。" class="headerlink" title="JSON.parse()：用于从一个字符串中解析出json 对象。"></a>JSON.parse()：用于从一个字符串中解析出json 对象。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">'&#123;"name":"cpf","age":"23"&#125;'</span>;</div><div class="line"><span class="built_in">JSON</span>.parse(str); <span class="comment">//Object &#123;name: "cpf", age: "23"&#125;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/math/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -795,6 +945,145 @@
 <h5 id="Number对象有构建函数，它最有用的方法是toFixed"><a href="#Number对象有构建函数，它最有用的方法是toFixed" class="headerlink" title="Number对象有构建函数，它最有用的方法是toFixed():"></a>Number对象有构建函数，它最有用的方法是toFixed():</h5><h6 id="toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"><a href="#toFixed-n-将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20" class="headerlink" title="toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20"></a>toFixed(n): 将number四舍五入为指定小数位数的数字。参数必须，为小数位数，值为0-20</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n= <span class="number">12.34</span>;</div><div class="line">n.toFixed(<span class="number">0</span>);<span class="comment">//"12"</span></div><div class="line">n.toFixed(<span class="number">1</span>);<span class="comment">//"12.3"</span></div><div class="line">n.toFixed(<span class="number">5</span>);<span class="comment">//"12.34000"</span></div></pre></td></tr></table></figure>
 <p>foFixed()用来截取小数位非常好用，不足的可以补0。<br>注意几点：</p>
 <h6 id="1、n必须是Number类型"><a href="#1、n必须是Number类型" class="headerlink" title="1、n必须是Number类型"></a>1、n必须是Number类型</h6><h6 id="2、返回的是string类型"><a href="#2、返回的是string类型" class="headerlink" title="2、返回的是string类型"></a>2、返回的是string类型</h6>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/parse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="格子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gezi's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/29/parse/" itemprop="url">javascript中与parse有关的方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:52:12+08:00">
+                2017-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>parse在javascript中是用来强制转换类型的，在javascript中有关parse的方法有以下几个：<br>parseInt()、parseFloat()、Date.parse()以及JSON.parse();一一来看一下:</p>
+<h5 id="parseInt-：解析一个字符串-并返回一个整数。"><a href="#parseInt-：解析一个字符串-并返回一个整数。" class="headerlink" title="parseInt()：解析一个字符串,并返回一个整数。"></a>parseInt()：解析一个字符串,并返回一个整数。</h5><p>parseInt()会从第一个位置进行判断它是否是个有效数字；如果不是，则返回NaN。如果是有效数字，将继续向下查找直到发现非有效数字的字符为止，此时parseInt()将把该字符之前的字符串转换成数字。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseInt</span>(<span class="string">'123abc'</span>); <span class="comment">//123</span></div><div class="line"><span class="built_in">parseInt</span>(<span class="string">'2.3'</span>); <span class="comment">//2</span></div><div class="line"><span class="built_in">parseInt</span>(<span class="string">'a234b'</span>); <span class="comment">///NaN</span></div></pre></td></tr></table></figure></p>
+<h5 id="parseFloat-：函数可解析一个字符串-并返回一个浮点数。"><a href="#parseFloat-：函数可解析一个字符串-并返回一个浮点数。" class="headerlink" title="parseFloat()：函数可解析一个字符串,并返回一个浮点数。"></a>parseFloat()：函数可解析一个字符串,并返回一个浮点数。</h5><p>与parseInt()方法的处理方式相似，从第一个位置查看每个字符，到第一个非有效的字符为止，然后把该字符之前的字符串转换成数字。但是，对于这个方法来说，第一个出现的小数点是有效字符。如果有两个小数点，第二个小数点将被看作无效的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.23345'</span>); <span class="comment">//1.23345</span></div><div class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.23abc'</span>); <span class="comment">//1.23</span></div><div class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.23.45'</span>); <span class="comment">//1.23</span></div></pre></td></tr></table></figure></p>
+<h5 id="Date-parse-：将时间转成时间戳。返回该日期与-1970-年-1-月-1-日午夜之间相差的毫秒数。"><a href="#Date-parse-：将时间转成时间戳。返回该日期与-1970-年-1-月-1-日午夜之间相差的毫秒数。" class="headerlink" title="Date.parse()：将时间转成时间戳。返回该日期与 1970 年 1 月 1 日午夜之间相差的毫秒数。"></a>Date.parse()：将时间转成时间戳。返回该日期与 1970 年 1 月 1 日午夜之间相差的毫秒数。</h5><p>参数格式：月/日/年 时:分:秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Date</span>.parse(<span class="string">'7/29/2017'</span>); <span class="comment">//1501257600000</span></div><div class="line"><span class="built_in">Date</span>.parse(<span class="string">'14:01:20 7/29/2017'</span>); <span class="comment">//1501308080000</span></div></pre></td></tr></table></figure></p>
+<p>关于参数的问题可查看：<a href="http://www.cnblogs.com/yingcaiyi/p/4884903.html" target="_blank" rel="external">http://www.cnblogs.com/yingcaiyi/p/4884903.html</a></p>
+<h5 id="JSON-parse-：用于从一个字符串中解析出json-对象。"><a href="#JSON-parse-：用于从一个字符串中解析出json-对象。" class="headerlink" title="JSON.parse()：用于从一个字符串中解析出json 对象。"></a>JSON.parse()：用于从一个字符串中解析出json 对象。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">'&#123;"name":"cpf","age":"23"&#125;'</span>;</div><div class="line"><span class="built_in">JSON</span>.parse(str); <span class="comment">//Object &#123;name: "cpf", age: "23"&#125;</span></div></pre></td></tr></table></figure>
+
           
         
       
@@ -1904,333 +2193,6 @@ table th:first-of-type {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/04/regexp2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/04/regexp2/" itemprop="url">RegExp属性lastIndex和与正则相关的String方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-04T21:18:40+08:00">
-                2017-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>趁热打铁，一并把RegExp对象的属性也回顾一遍吧：</p>
-<style>
-table th:first-of-type {
-    width: 100px;
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>global</td>
-<td>RegExp 对象是否具有标志 g</td>
-</tr>
-<tr>
-<td>ignoreCase</td>
-<td>RegExp 对象是否具有标志 i</td>
-</tr>
-<tr>
-<td>multiline</td>
-<td>RegExp 对象是否具有标志 m</td>
-</tr>
-<tr>
-<td>lastIndex</td>
-<td>一个整数，标示开始下一次匹配的字符位置</td>
-</tr>
-<tr>
-<td>source</td>
-<td>正则表达式的源文本</td>
-</tr>
-</tbody>
-</table>
-<p>重点看一下lastIndex:</p>
-<p><font color="#f00" style="font-size:26px">lastIndex</font>属性声明的是上一次匹配文本之后的第一个字符的位置，而上次匹配的结果是由exec()方法和test()方法找到的，它们都以lastIndex属性所指的位置做为下次查找的起始点。这样的话，就可以通过反复调用这两个方法来遍历一个字符串中所有的匹配文本。<br>lastIndex属性是可读可写的，只要目标字符串的下一次搜索开始中，就可以对它进行设置。当exec()或者test()方法再找也不到可以匹配的文本时，它们会自动把lastIndex属性的值重置为0。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"Twinkle twinkle little star"</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'kle'</span>, <span class="string">'g'</span>);</div><div class="line"></div><div class="line">reg.test(str);</div><div class="line">alert(<span class="string">'匹配到了, 现在的位置是：'</span> + reg.lastIndex); <span class="comment">//匹配到了，现在的位置是7</span></div><div class="line"></div><div class="line">reg.exec(str);</div><div class="line">alert(<span class="string">'又匹配到了, 现在的位置是：'</span> + reg.lastIndex); <span class="comment">//又匹配到了，现在的位置是15</span></div><div class="line"></div><div class="line">reg.test(str);</div><div class="line">alert(<span class="string">'匹配不到啦, 现在的位置是：'</span> + reg.lastIndex); <span class="comment">//匹配不到啦，现在的位置是0</span></div></pre></td></tr></table></figure>
-<h6 id="特别重要：不具有标志-g-和不表示全局模式的-RegExp-对象不能使用-lastIndex-属性。"><a href="#特别重要：不具有标志-g-和不表示全局模式的-RegExp-对象不能使用-lastIndex-属性。" class="headerlink" title="特别重要：不具有标志 g 和不表示全局模式的 RegExp 对象不能使用 lastIndex 属性。"></a><font color="#f00">特别重要</font>：不具有标志 g 和不表示全局模式的 RegExp 对象不能使用 lastIndex 属性。</h6><h6 id="提示：如果在成功地匹配了某个字符串之后就开始检索另一个新的字符串，需要手动地把这个属性设置为-0。"><a href="#提示：如果在成功地匹配了某个字符串之后就开始检索另一个新的字符串，需要手动地把这个属性设置为-0。" class="headerlink" title="提示：如果在成功地匹配了某个字符串之后就开始检索另一个新的字符串，需要手动地把这个属性设置为 0。"></a><font color="#999">提示</font>：如果在成功地匹配了某个字符串之后就开始检索另一个新的字符串，需要手动地把这个属性设置为 0。</h6><p>之前使用过Stirng的match()方法结合正则表达式来匹配字符串，再来看看还有哪些与正则相关的String对象方法呢？</p>
-<h5 id="search-用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。返回字符串中第一个匹配的位置。search-方法不执行全局匹配，它将忽略标志-g，它同时忽略-regexp-的-lastIndex-属性。"><a href="#search-用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。返回字符串中第一个匹配的位置。search-方法不执行全局匹配，它将忽略标志-g，它同时忽略-regexp-的-lastIndex-属性。" class="headerlink" title="search():用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。返回字符串中第一个匹配的位置。search() 方法不执行全局匹配，它将忽略标志 g，它同时忽略 regexp 的 lastIndex 属性。"></a><font color="#f00">search()</font>:用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。<font color="#f00">返回字符串中第一个匹配的位置</font>。search() 方法不执行全局匹配，它将忽略标志 g，它同时忽略 regexp 的 lastIndex 属性。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Twinkle twinkle little star'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'kle'</span>, <span class="string">'g'</span>); <span class="comment">//正则表达式</span></div><div class="line">alert(str.search(reg));  <span class="comment">//4</span></div></pre></td></tr></table></figure>
-<h5 id="replace-用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。"><a href="#replace-用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。" class="headerlink" title="replace():用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。"></a><font color="#f00">replace()</font>:用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</h5><p>replace()方法有两个参数：<br>regexp/substr：必需。规定子字符串或要替换的模式的 RegExp 对象。<br>replacement：必需。一个字符串值。规定了替换文本或生成替换文本的函数。<br>返回一个新的字符串，是用 replacement 替换了 regexp 的第一次匹配或所有匹配之后得到的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Twinkle twinkle little star'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'kle'</span>, <span class="string">'g'</span>); <span class="comment">//正则表达式</span></div><div class="line">alert(str.replace(reg, <span class="string">'abc'</span>)); <span class="comment">//Twinabc twinabc little star</span></div></pre></td></tr></table></figure>
-<p>如果没有指定全局标志 g ，则只替换第一个匹配子串:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Twinkle twinkle little star'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'kle'</span>); <span class="comment">//正则表达式</span></div><div class="line">alert(str.replace(reg, <span class="string">'abc'</span>)); <span class="comment">//Twinabc twinkle little star</span></div></pre></td></tr></table></figure>
-<p>replace()参数replacement 可以是字符串，也可以是函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Twinkle twinkle little star'</span>;</div><div class="line"><span class="keyword">var</span> result = str.replace(<span class="regexp">/kle/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">word</span>)</span>&#123;  </div><div class="line">	<span class="keyword">return</span> word.substring(<span class="number">0</span>,<span class="number">3</span>).toUpperCase();  </div><div class="line">&#125;);  </div><div class="line">alert(result);  <span class="comment">//TwinKLE twinKLE little star</span></div></pre></td></tr></table></figure>
-<h5 id="split-：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。"><a href="#split-：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。" class="headerlink" title="split()：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。"></a><font color="#f00">split()</font>：把一个字符串分割成字符串数组。两个参数：第一个参数是字符串或者正则表达式，用来指定从哪里开始分隔；第二个参数为可选参数，用来指定数组返回的最大长度。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Twinkle twinkle little star'</span>;</div><div class="line">alert(str.split(<span class="string">' '</span>)); <span class="comment">//Twinkle,twinkle,little,star</span></div><div class="line">alert(str.split(<span class="string">''</span>)); <span class="comment">//T,w,i,n,k,l,e, ,t,w,i,n,k,l,e, ,l,i,t,t,l,e, ,s,t,a,r</span></div><div class="line">alert(str.split(<span class="string">' '</span>,<span class="number">2</span>)); <span class="comment">//Twinkle,twinkle</span></div></pre></td></tr></table></figure>
-<p><br><br>下一篇： <a href="https://buding500.github.io/2017/07/05/regexp3/" target="_blank" rel="external">正则表达式的基础用法</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/04/regexp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="格子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gezi's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/04/regexp/" itemprop="url">正则表达式中test,exec,match方法的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-04T21:17:49+08:00">
-                2017-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="test-返回值是boolean值。查找对应的字符串中是否存在模式。"><a href="#test-返回值是boolean值。查找对应的字符串中是否存在模式。" class="headerlink" title="test(): 返回值是boolean值。查找对应的字符串中是否存在模式。"></a><font color="#f00">test()</font>: 返回值是boolean值。查找对应的字符串中是否存在模式。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'1a2b3c4d5f'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'1a'</span>);  <span class="comment">//匹配'1a'</span></div><div class="line">alert(reg.test(str)); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> reg2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'g'</span>); <span class="comment">//匹配'g'</span></div><div class="line">alert(reg2.test(str)); <span class="comment">//false</span></div></pre></td></tr></table></figure>
-<h5 id="exec-查找并以数组形式返回匹配到的结果。如果没有匹配到模式，则返回空数组；否则返回数组只有一项的数组。"><a href="#exec-查找并以数组形式返回匹配到的结果。如果没有匹配到模式，则返回空数组；否则返回数组只有一项的数组。" class="headerlink" title="exec(): 查找并以数组形式返回匹配到的结果。如果没有匹配到模式，则返回空数组；否则返回数组只有一项的数组。"></a><font color="#f00">exec()</font>: 查找并以数组形式返回匹配到的结果。如果没有匹配到模式，则返回空数组；否则返回数组只有一项的数组。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'1a2b3cb3a2b3d4'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'b3.'</span>); <span class="comment">//匹配'b3'+任意字符; .可以匹配任意字符</span></div><div class="line">alert(reg.exec(str)); <span class="comment">//b3c</span></div><div class="line">alert(reg.exec(str)); <span class="comment">//b3c</span></div><div class="line">alert(reg.exec(str)); <span class="comment">//b3c</span></div></pre></td></tr></table></figure>
-<p>如果我们相要把所有的b3+任意字符(如b3c,b3a,b3d)匹配出来应该怎么来做呢，加上全局标志 g 来试一试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3cb3a2b3d4&apos;;</div><div class="line">var reg = new RegExp(&apos;b3.&apos;,&apos;g&apos;); //全局模式下匹配&apos;b3&apos;+任意字符</div><div class="line">alert(reg.exec(str)); //b3c</div><div class="line">alert(reg.exec(str)); //b3a</div><div class="line">alert(reg.exec(str)); //b3d</div></pre></td></tr></table></figure>
-<p>确实匹配到了b3+任意字符的字符串，但exec()每次返回的数组只有一项，这很不方便，下面介绍match()方法，它可以解决这个问题！</p>
-<h5 id="match-match-跟exec-很像，不过match-是String对象的方法，而exec-方法是RegExp对象的方法。match-参数是正则表达式，而exec-参数是要匹配的字符串，两者相反。在没有全局标志下，两者返回值相同。"><a href="#match-match-跟exec-很像，不过match-是String对象的方法，而exec-方法是RegExp对象的方法。match-参数是正则表达式，而exec-参数是要匹配的字符串，两者相反。在没有全局标志下，两者返回值相同。" class="headerlink" title="match(): match()跟exec()很像，不过match()是String对象的方法，而exec()方法是RegExp对象的方法。match()参数是正则表达式，而exec()参数是要匹配的字符串，两者相反。在没有全局标志下，两者返回值相同。"></a><font color="#f00">match()</font>: match()跟exec()很像，不过match()是String对象的方法，而exec()方法是RegExp对象的方法。match()参数是正则表达式，而exec()参数是要匹配的字符串，两者相反。在没有全局标志下，两者返回值相同。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'1a2b3cb3a2b3d4'</span>;</div><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'b3.'</span>);</div><div class="line">alert(reg.exec(str)); <span class="comment">//b3c</span></div><div class="line">alert(str.match(reg)); <span class="comment">//b3c</span></div></pre></td></tr></table></figure>
-<p>不同的地方是在全局标志 g 下两者的返回值不同，exec()是只返回一项，而match会返回所有匹配到的结果组成的数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3cb3a2b3d4&apos;;</div><div class="line">var reg = new RegExp(&apos;b3.&apos;,&apos;g&apos;); //全局模式下匹配&apos;b3&apos;+任意字符</div><div class="line">alert(str.match(reg)); //b3c,b3a,b3d</div></pre></td></tr></table></figure>
-<p>这样是不是非常方便了，想要匹配多个并得到结果值，用match()就可以了。</p>
-<p>最后来做个总结：</p>
-<h5 id="1、test-和exec-是RegExp对象方法，而match-是String对象方法；"><a href="#1、test-和exec-是RegExp对象方法，而match-是String对象方法；" class="headerlink" title="1、test()和exec()是RegExp对象方法，而match()是String对象方法；"></a>1、test()和exec()是RegExp对象方法，而match()是String对象方法；</h5><h5 id="2、test-和exec-参数是要匹配的字符串，而match-参数是正则表达式；"><a href="#2、test-和exec-参数是要匹配的字符串，而match-参数是正则表达式；" class="headerlink" title="2、test()和exec()参数是要匹配的字符串，而match()参数是正则表达式；"></a>2、test()和exec()参数是要匹配的字符串，而match()参数是正则表达式；</h5><h5 id="3、test-返回值为true或者false，exec-和match-返回一个数组；"><a href="#3、test-返回值为true或者false，exec-和match-返回一个数组；" class="headerlink" title="3、test()返回值为true或者false，exec()和match()返回一个数组；"></a>3、test()返回值为true或者false，exec()和match()返回一个数组；</h5><h5 id="4、exec-和match-在非全局标志g下均返回长度为1的数组；而在全局标志g下，exec-返回匹配结果的第一项，而match-返回匹配结果的所有项。"><a href="#4、exec-和match-在非全局标志g下均返回长度为1的数组；而在全局标志g下，exec-返回匹配结果的第一项，而match-返回匹配结果的所有项。" class="headerlink" title="4、exec()和match()在非全局标志g下均返回长度为1的数组；而在全局标志g下，exec()返回匹配结果的第一项，而match()返回匹配结果的所有项。"></a>4、exec()和match()在非全局标志g下均返回长度为1的数组；而在全局标志g下，exec()返回匹配结果的第一项，而match()返回匹配结果的所有项。</h5><p><br><br>下一篇： <a href="https://buding500.github.io/2017/07/04/regexp2/" target="_blank" rel="external">RegExp对象属性和String对象的正则方法</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2280,7 +2242,7 @@ table th:first-of-type {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2291,7 +2253,7 @@ table th:first-of-type {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
