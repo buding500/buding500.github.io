@@ -342,7 +342,7 @@
 
       
         <p>移动端项目少不了搜索，但是在输入框里输入的时候怎么让键盘显示搜索按钮呢？在html5中有个type=”search”，于是拿来一试：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"search"</span> placeholder=<span class="string">"请输入关键字"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>手机拿出来一试，咦，怎么都不管用呢？键盘上没有搜索按钮呀！<br>百度呀百度，搜索出来这么一条：<br>type=”search”的时候，需要在外面加一层form才能实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">""</span>&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"search"</span> <span class="attr">placeholder</span>=<span class="string">"请输入关键字"</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>手机拿出来一试，咦，怎么都不管用呢？键盘上没有搜索按钮呀！<br>百度呀百度，搜索出来这么一条：<br>type=”search”的时候，需要在外面加一层form才能实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">""</span>&gt;</div><div class="line">  &lt;input type="search" placeholder="请输入关键字"&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
 <p>加了from之后就可以成功在键盘上显示搜索按钮了，不过我的手机是iphone的，至于其它的机器我还没有测试过。</p>
 <p>既然写到这里了，干脆一并复习下html5下input有哪些新的type好了：</p>
 <table>
@@ -518,7 +518,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
